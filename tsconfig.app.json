@@ -4,7 +4,8 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "forceConsistentCasingInFileNames": true,
-    "module": "CommonJS",
+    "module": "ES2022",
+    "moduleResolution": "bundler",
     "outDir": "./out-tsc/app",
     "types": []
   },
