@@ -2,74 +2,93 @@
   position: sticky;
   top: 0;
   z-index: 50;
+  height: 68px;
   width: 100%;
   background-color: #0D0D0D;
   color: #E5E5E5;
+
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .nav-inner {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 16px 80px;
+  justify-content: space-between;
 }
 
-.nav-inner ul {
-  list-style: none;
+
+
+.nav-brand h2{
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+
+.nav-list {
   display: flex;
-  gap: 24px;
+  gap: 2rem;
+  list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.nav-inner li a {
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #cbd5f5;
   text-decoration: none;
-  color: #E5E5E5;
   position: relative;
-  cursor: pointer;
-  font-size: 16px;
-  transition: color 0.3s ease;
 }
 
-.nav-inner li a:hover {
-  color: #3B82F6;
-  transition: all 300ms ease; 
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #24C6DC, #514A9D);
+  transition: width 0.25s ease;
 }
 
-.nav button {
-  padding: 12px 18px;
-  background-color: #0D0D0D;
-  border: 1px solid #3B82F6;
-  border-radius: 24px;
-  font-size: 16px;
-  color: #3B82F6;
-  cursor: pointer;
+.nav-link:hover::after {
+  width: 100%;
 }
 
-.nav button:hover {
-  background-color: #3B82F6;
-  color: #0D0D0D;
-  border-color: #3B82F6;
-  transition: all 1000ms ease; 
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
-}
+.btn-grad {background-image: linear-gradient(to right, #24C6DC 0%, #514A9D  51%, #24C6DC  100%)}
+.btn-grad {
+   margin: 10px;
+   padding: 0.45rem 1.1rem;
+   text-align: center;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: #E5E5E5;            
+   border-radius: 999px;
+   font-weight: 600;
+   display: block;
+   font-size: 16px;
+   border: #0D0D0D;
+  }
+
+ .btn-grad:hover {
+   background-position: right center; 
+   text-decoration: none;
+ }
 
 
 @media (max-width: 768px) {
-  nav ul li a{
-    display: none; 
+  .nav-inner {
+    padding: 0 1.5rem;
   }
 
-  .mobile-menu-btn {
-    display: block;
-  }
-
-  .nav button{
+  .nav-links {
     display: none;
   }
-}
-
-.mobile-menu-btn {
-  display: none;
 }
