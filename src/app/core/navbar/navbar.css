@@ -75,6 +75,7 @@
    display: block;
    font-size: 16px;
    border: #0D0D0D;
+   cursor: pointer;
   }
 
  .btn-grad:hover {
@@ -88,7 +89,12 @@
     padding: 0 1.5rem;
   }
 
-  .nav-links {
+
+  .nav-brand h2{
+    display: none;
+  }
+
+  .nav-link {
     display: none;
   }
 }
