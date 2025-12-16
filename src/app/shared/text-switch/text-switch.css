@@ -1,0 +1,15 @@
+.text {
+  display: inline-block;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; 
+  color: transparent;     
+}
+
+.text.hidden {
+  opacity: 0;
+  transform: translateY(6px);
+}

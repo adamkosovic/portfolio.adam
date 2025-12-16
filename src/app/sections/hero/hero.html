@@ -3,7 +3,12 @@
     <div class="hero-left stack">
       <h3>Hello, I'm</h3>
       <h1>Adam Kosovic</h1>
-      <h2>Frontend Developer</h2>
+      <h2 class="hero-role">
+        <app-text-switch
+          [texts]="['Frontend Developer', 'Web Developer', 'Web Developer']"
+          [interval]="1600">
+        </app-text-switch>
+      </h2>
       <p>
         I am a passionate frontend developer with experience in creating
         responsive and user-friendly web applications. I love turning ideas
