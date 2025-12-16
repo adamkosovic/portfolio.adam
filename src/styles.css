@@ -1,13 +1,264 @@
+/* ===== Reset -> base -> variabler -> layout -> formulär -> scrollbar ===== */
+
+
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
 }
 
+:root {
+  --bg: #111;
+  --text: #fff;
+  --muted: #aaa;
+
+  --nav-bg: #0D0D0D;
+  --nav-text: #E5E5E5;
+  --nav-border: rgba(255, 255, 255, 0.08);
+  --nav-height: 68px;
+
+  --hero-bg: #121212;
+  --surface: #161616;
+  --text-soft: #cfcfcf;
+
+  --gradient: linear-gradient(90deg, #24C6DC 0%, #514A9D 100%);
+
+  --accent: #00bcd4;
+  --accent-glow: rgba(0, 188, 212, 0.6);
+
+  --scroll-track: #1e1e1e;
+  --scroll-thumb: #555;
+  --scroll-thumb-hover: #888;
+
+  --radius: 8px;
+  --pad: 10px;
+  --font: 'Roboto', sans-serif;
+
+
+  --container : 1100px;
+  --gutter: clamp(16px, 4vw, 32px);
+
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-6: 64px;
+}
 
 html {
   scroll-behavior: smooth;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+}
+
+
+/* ===== Layout / spacing grund ===== */
+
+.container {
+  width: min(1100px, 92%);
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--space-6);
+}
+
+.section--sm {
+  padding-block: var(--space-4);
+}
+
+.stack > * + * {
+  margin-top: var(--space-3);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+
+.grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+
+:where(a, button, input, textarea, select):focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+section[id] {
+  scroll-margin-top: 80px; 
+}
+
+
+@media (max-width: 900px) {
+  .grid--2,
+  .grid--3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* ===== Button  ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  border: 0;
+
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+
+  color: var(--text);
+  background: transparent;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-position 0.3s ease;
+}
+
+/* Gradient primary button */
+.btn--primary {
+  background-image: var(--gradient);
+  background-size: 200% auto;
+}
+
+.btn--primary:hover {
+  background-position: right center;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(36, 198, 220, 0.25);
+}
+
+.btn--primary:active {
+  transform: translateY(0);
+}
+
+/* Focus (accessibility) */
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+/* Size modifiers */
+.btn--sm {
+  padding: 0.35rem 0.9rem;
+  font-size: 0.9rem;
+}
+
+.btn--lg {
+  padding: 0.85rem 1.6rem;
+  font-size: 1rem;
+}
+
+/* Disabled */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===== Formulär styling ===== */
+input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+textarea,
+select {
+  background-color: var(--bg);
+  color: var(--text);
+  border: 2px solid var(--border);
+  padding: var(--pad);
+  border-radius: var(--radius);
+  font-size: 16px;
+  width: 100%;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):hover,
+textarea:hover,
+select:hover {
+  border-color: var(--border-hover);
+}
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--bg) inset;
+  -webkit-text-fill-color: var(--text);
+  transition: background-color 9999s ease-out 0s;
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
+  border-color: #ff4d4f;
+  box-shadow: 0 0 0 3px rgba(255, 77, 79, 0.25);
+}
+
+
+
+/* ===== Scrollbar ===== */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scroll-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+  border-radius: 999px;
+  border: 2px solid var(--scroll-track);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-thumb-hover);
+}
+
+body {
+  -webkit-overflow-scrolling: touch;
 }
