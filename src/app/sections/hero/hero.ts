@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { TextSwitchComponent } from '../../shared/text-switch/text-switch';
+import { BrandIcons } from '../../shared/brand-icons/brand-icons';
 
 
 @Component({
   selector: 'app-hero',
-  imports: [TextSwitchComponent],
+  imports: [TextSwitchComponent, BrandIcons],
   templateUrl: './hero.html',
   styleUrl: './hero.css',
 })
