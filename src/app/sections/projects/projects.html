@@ -1,1 +1,13 @@
-<p>projects works!</p>
+<section class=" container projects" id="projects">
+  <header class="projects__header">
+    <p class="projects__eyebrow">PROJECTS</p>
+    <h2>Check Out Some of My Recent Work</h2>
+  </header>
+
+  <div class="projects__list">  
+    <app-project-cards
+      *ngFor="let project of projects"
+      [project]="project"
+    ></app-project-cards>
+  </div>
+</section>
