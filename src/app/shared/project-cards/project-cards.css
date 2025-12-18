@@ -1,16 +1,26 @@
 .card {
   display: grid;
   grid-template-columns: 360px 1fr;
-  padding: 36px;
+  gap: 24px;
+  padding: 24px;
   border-radius: 20px;
   background: var(--bg);
   border: 1px solid rgba(255,255,255,0.06);
-  max-height: 300px;
   max-width: 750px;
+  align-items: center;
+  min-width: 0;
 }
+
+.card:hover {
+  border-color: var(--gradient);
+}
+
 
 .card-media {
   overflow: hidden;
+  border-radius: 20px;
+  max-height: 220px;
+  height: auto;
 }
 
 .card-image {
@@ -18,9 +28,10 @@
   height: 100%;
   display: block;
   object-fit: cover;
-  max-height: 220px;
-  max-width: 300px;
   border-radius: 20px;
+
+  max-width: none;
+  max-height: none;
 }
 
 .card-body {
@@ -77,6 +88,11 @@
   gap: 8px;
 }
 
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
 .btn--ghost {
   background: transparent;
 }
@@ -85,6 +101,11 @@
   text-decoration: none;
   color: inherit;
   font-size: 12px;
+}
+
+.link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
 }
 
 .link-icon {
@@ -97,8 +118,70 @@
   margin-left: 4px;
 }
 
+
+/* Mellanläge: 500–700px */
+@media (min-width: 500px) and (max-width: 700px) {
+  .card {
+    grid-template-columns: 220px 1fr;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .card-media {
+    height: 160px;
+  }
+
+  .card-title {
+    font-size: 15px;
+  }
+
+  .card-desc {
+    font-size: 11px;
+    line-height: 1.4;
+
+    /* valfritt: håll kortet kompakt */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-actions {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+}
+
 /* Mobil */
-@media (max-width: 900px) {
-  .card { grid-template-columns: 1fr; }
-  .card__media { aspect-ratio: 16 / 10; }
+@media (max-width: 500px) {
+  .card {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 16px;
+
+    max-height: none;
+  }
+
+  .card-media {
+    aspect-ratio: 16 / 10;
+    height: auto; 
+  }
+
+  .card-body {
+    max-height: none;
+  }
+
+  .card-tags {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .card-actions {
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }

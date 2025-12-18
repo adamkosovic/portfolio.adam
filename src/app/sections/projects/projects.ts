@@ -21,5 +21,23 @@ export class ProjectsComponent {
       repoUrl: 'https://github.com/...',
       liveUrl: 'https://...',
     },
+    {
+      title: 'Expert Notes',
+      description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      imageUrl: 'assets/images/bookquote.png',
+      imageAlt: 'Screenshot of Expert Notes app',
+      tags: ['TypeScript', 'Vite.js'],
+      repoUrl: 'https://github.com/...',
+      liveUrl: 'https://...',
+    },
+    {
+      title: 'Expert Notes',
+      description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      imageUrl: 'assets/images/bookquote.png',
+      imageAlt: 'Screenshot of Expert Notes app',
+      tags: ['TypeScript', 'Vite.js'],
+      repoUrl: 'https://github.com/...',
+      liveUrl: 'https://...',
+    },
   ];
 }
