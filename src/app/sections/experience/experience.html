@@ -1,0 +1,15 @@
+<section class="section">
+  <h2 class="title">Experience</h2>
+
+  <ul class="timeline">
+    <li class="item" *ngFor="let exp of experince; let i = index; trackBy: trackByIndex">
+      <span class="dot" aria-hidden="true"></span>
+
+      <app-experience-card  
+        [experience]="exp"
+        [class.left]="i % 2 === 0"
+        [class.right]="i % 2 !== 0">
+      </app-experience-card>
+    </li>
+  </ul>
+</section>

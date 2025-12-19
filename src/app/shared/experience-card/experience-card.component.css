@@ -1,0 +1,27 @@
+:host {
+  display: block;
+}
+
+:host(.left) {
+  grid-column: 1;
+  justify-self: end;
+}
+
+:host(.right) {
+  grid-column: 3;
+  justify-self: start;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+  max-width: 420px;
+}
+
+
+@media (max-width: 768px) {
+  .card {
+    max-width: none;
+  }
+}

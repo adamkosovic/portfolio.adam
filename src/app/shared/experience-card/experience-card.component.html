@@ -1,0 +1,15 @@
+<article class="card" [class.left]="side === 'left'" [class.right]="side === 'right'">
+  <header class="header">
+    <h3 class="role">{{ experience.role }}</h3>
+    <div class="meta">
+      <span>{{ experience.company }}</span> • <span>{{ experience.location }}</span>
+    </div>
+    <div class="dates">{{ experience.startDate }} – {{ experience.endDate }}</div>
+  </header>
+
+  <p class="desc">{{ experience.description }}</p>
+
+  <ul class="tech">
+    <li *ngFor="let t of experience.technologies">{{ t }}</li>
+  </ul>
+</article>

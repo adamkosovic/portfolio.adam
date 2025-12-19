@@ -6,13 +6,14 @@ import { Contact } from './sections/contact/contact';
 import { Hero } from './sections/hero/hero';
 import { Footer } from './core/footer/footer';
 import { Component } from '@angular/core';
-import { Experiance } from './sections/experiance/experiance';
+import { ExperienceComponent } from './sections/experience/experience';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.html',
-  imports: [Navbar, Hero, About, ProjectsComponent, Contact, Footer, Experiance],
+  imports: [Navbar, Hero, About, ProjectsComponent, Contact, Footer, ExperienceComponent],
   styleUrls: ['./app.css']
 })
 export class App {
