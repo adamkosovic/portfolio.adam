@@ -19,18 +19,43 @@
 
 
 .nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   text-decoration: none;
   color: inherit;
+  padding: 6px 10px;
+  border-radius: 12px;
+  transition: transform 0.15s ease, background-color 0.15s ease, opacity 0.15s ease;
 }
 
+.nav-logo img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
 
-.nav-brand h2{
+.nav-logo h2 {
   margin: 0;
-  font-family: var(--font);
-  font-size: 1.4rem;
-  font-weight: 600;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
 }
 
+.nav-logo:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  transform: translateY(-1px);
+}
+
+.nav-logo:focus-visible {
+  outline: 2px solid rgba(36, 198, 220, 0.6); 
+  outline-offset: 3px;
+}
 
 .nav-list {
   display: flex;
