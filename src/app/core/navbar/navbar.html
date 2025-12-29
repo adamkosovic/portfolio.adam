@@ -1,28 +1,28 @@
+<div class="nav-backdrop" *ngIf="menuOpen" (click)="closeMenu()"></div>
 <nav class="nav" aria-label="Main navigation">
   <div class="nav-inner container">
-      <a href="#hero" class="nav-logo">
-        <img src="assets/images/logokosovic.png" alt="logokosovic">
-        <h2>Adam Kosovic</h2>
-      </a>
+    <a href="#hero" class="nav-logo">
+      <img src="assets/images/logokosovic.png" alt="logokosovic">
+      <h2>Adam Kosovic</h2>
+    </a>
 
-    <ul class="nav-list">
-      <li class="nav-item">
-        <a href="#hero" class="nav-link">About</a>
-      </li>
-      <li class="nav-item">
-        <a href="#skills" class="nav-link">Skills</a>
-      </li>
-      <li class="nav-item">
-        <a href="#experience" class="nav-link">Experience</a>
-      </li>
-      <li class="nav-item">
-        <a href="#projects" class="nav-link">Projects</a>
-      </li>
+    <ul class="nav-list" [class.active]="menuOpen">
+      <li class="nav-item"><a href="#hero" class="nav-link" (click)="closeMenu()">About</a></li>
+      <li class="nav-item"><a href="#skills" class="nav-link" (click)="closeMenu()">Skills</a></li>
+      <li class="nav-item"><a href="#experience" class="nav-link" (click)="closeMenu()">Experience</a></li>
+      <li class="nav-item"><a href="#projects" class="nav-link" (click)="closeMenu()">Projects</a></li>
     </ul>
 
     <div class="nav-actions">
       <button class="btn btn--primary btn--sm">Contact</button>
     </div>
 
+    <app-burger-menu
+      class="nav-burger-menu"
+      [active]="menuOpen"
+      (toggle)="toggleMenu()"
+    >    
+    </app-burger-menu>
   </div>
 </nav>
+

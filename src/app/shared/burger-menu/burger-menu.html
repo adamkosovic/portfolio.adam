@@ -1,0 +1,12 @@
+<button
+  type="button"
+  class="burger-btn"
+  [class.active]="active"
+  (click)="onToggle()"
+  aria-label="Toggle menu"
+  [attr.aria-expanded]="active"
+>
+  <span class="line line1"></span>
+  <span class="line line2"></span>
+  <span class="line line3"></span>
+</button>
