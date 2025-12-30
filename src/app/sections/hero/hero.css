@@ -34,14 +34,10 @@
   max-width: 60ch;
 }
 
-
 .btn {
-  --gradient: linear-gradient(90deg, #24C6DC 0%, #514A9D 100%);
+  display: inline-block;
+  margin-top: var(--space-4);
 }
-
-
-
-
 
 .hero-right {
   display: grid;
@@ -136,5 +132,10 @@
 
   .hero-container{
     padding-block: clamp(24px, 6vh, 80px);
+  }
+
+  .socials {
+    display: flex;
+    justify-content: center;
   }
 }
