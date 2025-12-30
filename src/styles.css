@@ -112,6 +112,11 @@ section[id] {
 
 /* ===== Button  ===== */
 .btn {
+  --gradient: linear-gradient(90deg, #24C6DC 0%, #514A9D 100%);
+  --bg: #000;
+  --glow: rgba(36, 198, 220, 0.35);
+  --glow-strong: rgba(36, 198, 220, 0.55);
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -119,14 +124,24 @@ section[id] {
 
   padding: 0.45rem 1.1rem;
   border-radius: 999px;
-  border: 0;
+  border: 2px solid transparent;
 
-  font: inherit;
-  font-weight: 600;
-  cursor: pointer;
+  background:
+    linear-gradient(#000, #000) padding-box,
+    var(--gradient) border-box;
 
   color: var(--text);
-  background: transparent;
+  font: inherit;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  
+  cursor: pointer;
+  -webkit-font-smoothing: antialiased;
+  touch-action: manipulation;
+
+  box-shadow:
+  inset 0 1px 0 rgba(255, 255, 255, 0.06),
+  0 0 0 rgba(0, 0, 0, 0);
 
   transition:
     transform 0.2s ease,
@@ -134,26 +149,39 @@ section[id] {
     background-position 0.3s ease;
 }
 
-/* Gradient primary button */
+/* optional variant */
 .btn--primary {
-  background-image: var(--gradient);
   background-size: 200% auto;
+  background-position: left center;
 }
 
 .btn--primary:hover {
   background-position: right center;
   transform: translateY(-1px);
-  box-shadow: 0 12px 30px rgba(36, 198, 220, 0.25);
+  box-shadow:
+  inset 0 1px 0 rgba(255, 255, 255, 0.08),
+  0 12px 30px var(--glow);
+
+  background:
+  var(--gradient) padding-box,
+  var(--gradient) border-box;
+
+  color: #000;
 }
 
 .btn--primary:active {
   transform: translateY(0);
+  box-shadow:
+  inset 0 2px 4px rgba(0, 0, 0, 0.35),
+  0 6px 18px var(--glow);
 }
 
 /* Focus (accessibility) */
 .btn:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px var(--accent-glow);
+  box-shadow:
+    0 0 0 3px var(--glow-strong),
+    0 0 0 6px rgba(0, 0, 0, 0.8);
 }
 
 /* Size modifiers */
@@ -171,7 +199,11 @@ section[id] {
 .btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
+
+
 
 /* ===== Formulär styling ===== */
 input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
