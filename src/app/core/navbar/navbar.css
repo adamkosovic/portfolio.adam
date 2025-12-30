@@ -90,6 +90,12 @@
   width: 100%;
 } 
 
+.nav-link:focus-visible {
+  outline: 2px solid rgba(36, 198, 220, 0.6); 
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
 .nav-burger-menu {
   display: none;
 }
