@@ -1,39 +1,29 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild, OnDestroy } from '@angular/core';
+import Typed from 'typed.js';
 
 @Component({
   selector: 'app-text-switch',
-  imports: [],
-  templateUrl: './text-switch.html',
+  standalone: true,
   styleUrl: './text-switch.css',
+  template: `<span #typedEl></span>`,
 })
-export class TextSwitchComponent implements OnInit, OnDestroy {
-  @Input() texts: string[] = [];
-  @Input() interval = 1600; 
+export class TextSwitchComponent implements AfterViewInit, OnDestroy {
+  @ViewChild('typedEl', { static: true }) typedEl!: ElementRef<HTMLElement>;
+  private typed?: Typed;
 
-  current = '';
-  index = 0;
-  visible = true;
-  private timer?: number;
-
-  ngOnInit() {
-    if(!this.texts.length) return;
-
-    this.current = this.texts[0];
-
-    this.timer = window.setInterval(() => {
-      this.visible = false;
-
-      setTimeout(() => {
-        this.index = (this.index + 1) % this.texts.length;
-        this.current = this.texts[this.index];
-        this.visible = true;
-      }, 250); 
-    }, this.interval);
+  ngAfterViewInit() {
+    this.typed = new Typed(this.typedEl.nativeElement, {
+      strings: ['Frontend Developer', 'Web Developer', 'Angular Developer'],
+      typeSpeed: 50,
+      backSpeed: 30,
+      backDelay: 1200,
+      loop: true,
+      showCursor: true,
+      cursorChar: '|'
+    });
   }
 
   ngOnDestroy() {
-    if (this.timer) {
-      clearInterval(this.timer);
-    }
+    this.typed?.destroy();
   }
 }
