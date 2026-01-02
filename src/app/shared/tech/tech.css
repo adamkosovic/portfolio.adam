@@ -1,0 +1,36 @@
+.tech-marquee {
+  overflow: hidden;
+  width: 100%;
+  background: transparent;
+  padding: 1.5rem 0;
+}
+
+.tech-marquee {
+  display: flex;
+  gap: 3rem;
+}
+
+.tech-stack {
+  display: flex;
+  gap: 3rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  animation: scroll 25s linear infinite;
+}
+
+.tech-stack li {
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
