@@ -1,75 +1,177 @@
+/* Section base */
 .about-section {
-  min-height: calc(100svh - var(--nav-height));
-  max-width: 900px;
+  padding: clamp(3rem, 6vw, 5rem) 1.25rem;
+  scroll-margin-top: 90px;
+
+  color: #e5e7eb;
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(99, 102, 241, 0.22) 0%, transparent 60%),
+    radial-gradient(900px 500px at 90% 10%, rgba(56, 189, 248, 0.18) 0%, transparent 55%),
+    #020617;
+}
+
+.about-card {
+  max-width: 980px;
   margin: 0 auto;
-  padding: 80px 16px;
+  background: rgba(2, 6, 23, 0.85);
+  border: 1px solid #1e293b;
+  border-radius: 1.25rem;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.02),
+    0 30px 80px rgba(0,0,0,0.6);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
 }
 
-.heading {
-  text-align: center;
-  margin-bottom: 40px;
+/* Heading */
+.heading .eyebrow {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: #475569;
+  margin: 0 0 0.5rem 0;
 }
 
-.about-section {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 4rem 1.5rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  color: #1f2933;
-}
-
-.about-section h2 {
-  color: #ffffff;
-  font-size: 2.25rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
+.heading h2 {
+  font-size: clamp(2rem, 3.2vw, 2.6rem);
+  line-height: 1.1;
+  margin: 0 0 0.75rem 0;
   position: relative;
 }
 
-.about-section p {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  margin-bottom: 1.25rem;
-  color: #374151;
+.heading h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  border-radius: 999px;
+  margin-top: 0.75rem;
+  background: linear-gradient(90deg, #4f46e5, #06b6d4);
+}
+
+.subtitle {
+  margin: 0;
+  color: #334155;
+  line-height: 1.6;
+  max-width: 60ch;
+}
+
+/* Layout */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  margin-top: 1.75rem;
+}
+
+@media (max-width: 860px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Body text */
+.about-me p {
+  margin: 0 0 1rem 0;
+  color: #334155;
+  line-height: 1.75;
+  font-size: 1.02rem;
 }
 
 /* Traits */
+.traits-block {
+  margin-top: 1.25rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+}
+
+.traits-block h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1rem;
+  color: #0f172a;
+}
+
 .traits {
   display: flex;
-  gap: 0.75rem;
   flex-wrap: wrap;
+  gap: 0.6rem;
   list-style: none;
   padding: 0;
-  margin: 2rem 0;
+  margin: 0;
 }
 
 .traits li {
-  background: #eef2ff;
-  color: #3730a3;
-  padding: 0.4rem 0.75rem;
+  padding: 0.45rem 0.75rem;
   border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 500;
+  background: #eef2ff;
+  border: 1px solid #e0e7ff;
+  color: #3730a3;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
+/* Aside (right column) */
+.about-aside {
+  display: grid;
+  gap: 0.75rem;
+  align-content: start;
+}
 
-/* Mobile */
-@media (max-width: 600px) {
-  .about-section {
-    padding: 60px 16px;
-  }
+.stat {
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 0.9rem 1rem;
+}
 
-  .about-section h2 {
-    font-size: 1.6rem;
-  }
+.stat-label {
+  display: block;
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 0.25rem;
+}
 
-  .about-section p {
-    font-size: 1rem;
-    line-height: 1.65;
-    text-align: left;
-  }
+.stat-value {
+  font-weight: 700;
+  color: #0f172a;
+}
 
-  .about-highlights {
-    justify-content: flex-start;
-  }
+.note {
+  border: 1px dashed #cbd5e1;
+  background: #f8fafc;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.note p {
+  margin: 0;
+  color: #334155;
+  line-height: 1.7;
+}
+
+/* Tech block */
+.tech-block {
+  margin-top: 2rem;
+}
+
+.tech-title {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+
+.tech-frame {
+  border-radius: 1.25rem;
+  border: 1px solid #e5e7eb;
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  padding: 1rem;
+  overflow: hidden;
+}
+
+/* Optional: nicer focus for accessibility */
+.about-section :focus-visible {
+  outline: 3px solid rgba(79, 70, 229, 0.35);
+  outline-offset: 3px;
+  border-radius: 0.75rem;
 }
