@@ -2,12 +2,7 @@
 .about-section {
   padding: clamp(3rem, 6vw, 5rem) 1.25rem;
   scroll-margin-top: 90px;
-
   color: #e5e7eb;
-  background:
-    radial-gradient(1200px 600px at 20% -10%, rgba(99, 102, 241, 0.22) 0%, transparent 60%),
-    radial-gradient(900px 500px at 90% 10%, rgba(56, 189, 248, 0.18) 0%, transparent 55%),
-    #020617;
 }
 
 .about-card {
