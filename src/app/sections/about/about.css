@@ -1,53 +1,50 @@
-/* Section base */
+/* Theme tokens för sektionen */
 .about-section {
+  --surface: rgba(2, 6, 23, 0.85);
+  --surface-border: rgba(255,255,255,0.06);
+  --text: rgba(226, 232, 240, 0.92);      
+  --muted: rgba(148, 163, 184, 0.85);     
+  --chip: rgba(15, 23, 42, 0.65);
+  --chip-border: rgba(255,255,255,0.10);
+
   padding: clamp(3rem, 6vw, 5rem) 1.25rem;
   scroll-margin-top: 90px;
-  color: #e5e7eb;
 }
 
+/* Card */
 .about-card {
   max-width: 980px;
   margin: 0 auto;
-  background: rgba(2, 6, 23, 0.85);
-  border: 1px solid #1e293b;
+  background: var(--surface);
   border-radius: 1.25rem;
   box-shadow:
-    0 0 0 1px rgba(255,255,255,0.02),
+    0 0 0 1px rgba(255,255,255,0.04),
     0 30px 80px rgba(0,0,0,0.6);
   padding: clamp(1.5rem, 3vw, 2.5rem);
+  border: 1px solid var(--surface-border);
 }
 
 /* Heading */
+.heading {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
 .heading .eyebrow {
-  letter-spacing: 0.12em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   font-size: 0.8rem;
-  color: #475569;
+  color: var(--muted);
   margin: 0 0 0.5rem 0;
 }
 
 .heading h2 {
   font-size: clamp(2rem, 3.2vw, 2.6rem);
+  font-weight: 500;
   line-height: 1.1;
   margin: 0 0 0.75rem 0;
-  position: relative;
-}
-
-.heading h2::after {
-  content: "";
-  display: block;
-  width: 64px;
-  height: 4px;
-  border-radius: 999px;
-  margin-top: 0.75rem;
-  background: linear-gradient(90deg, #4f46e5, #06b6d4);
-}
-
-.subtitle {
-  margin: 0;
-  color: #334155;
-  line-height: 1.6;
-  max-width: 60ch;
+  letter-spacing: 0.06em;
+  color: var(--text);
 }
 
 /* Layout */
@@ -64,49 +61,21 @@
   }
 }
 
-/* Body text */
+
 .about-me p {
   margin: 0 0 1rem 0;
-  color: #334155;
+  color: var(--text);
   line-height: 1.75;
   font-size: 1.02rem;
+  opacity: 0.95;
 }
 
-/* Traits */
-.traits-block {
+
+.about-me .stat {
   margin-top: 1.25rem;
-  padding: 1rem;
-  border-radius: 1rem;
-  border: 1px solid #e5e7eb;
-  background: #f8fafc;
 }
 
-.traits-block h3 {
-  margin: 0 0 0.75rem 0;
-  font-size: 1rem;
-  color: #0f172a;
-}
-
-.traits {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.traits li {
-  padding: 0.45rem 0.75rem;
-  border-radius: 999px;
-  background: #eef2ff;
-  border: 1px solid #e0e7ff;
-  color: #3730a3;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-/* Aside (right column) */
+/* Aside */
 .about-aside {
   display: grid;
   gap: 0.75rem;
@@ -114,8 +83,8 @@
 }
 
 .stat {
-  border: 1px solid #e5e7eb;
-  background: #ffffff;
+  border: 1px solid var(--chip-border);
+  background: rgba(15, 23, 42, 0.55);
   border-radius: 1rem;
   padding: 0.9rem 1rem;
 }
@@ -123,50 +92,145 @@
 .stat-label {
   display: block;
   font-size: 0.85rem;
-  color: #64748b;
+  color: var(--muted);
   margin-bottom: 0.25rem;
 }
 
 .stat-value {
   font-weight: 700;
-  color: #0f172a;
+  color: var(--text);
 }
 
 .note {
-  border: 1px dashed #cbd5e1;
-  background: #f8fafc;
+  border: 1px dashed rgba(255,255,255,0.18);
+  background: rgba(15, 23, 42, 0.35);
   border-radius: 1rem;
   padding: 1rem;
 }
 
 .note p {
   margin: 0;
-  color: #334155;
+  color: var(--text);
   line-height: 1.7;
+  opacity: 0.92;
+}
+
+/* Traits block */
+.traits-block {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.traits-block h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.05rem;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+/* Traits layout: responsivt grid istället för fasta widths */
+.traits {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .traits {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .traits {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Själva kortet = button */
+.trait {
+  width: 100%;
+  text-align: left;
+  padding: 1.05rem 1.1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(15, 23, 42, 0.55);
+  color: var(--text);
+  cursor: pointer;
+
+  display: grid;
+  gap: 0.35rem;
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.trait strong {
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+}
+
+.trait span {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Hover/active */
+.trait:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  border-color: rgba(99,102,241,0.45);
+}
+
+/* “Selected” state (via aria-pressed) */
+.trait[aria-pressed="true"] {
+  background: var(--gradient);
+  border-color: rgba(255,255,255,0.18);
+}
+
+.trait[aria-pressed="true"] span {
+  color: rgba(255,255,255,0.92);
 }
 
 /* Tech block */
 .tech-block {
   margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
 }
 
 .tech-title {
   margin: 0 0 0.75rem 0;
   font-size: 1.05rem;
-  color: #0f172a;
+  color: var(--text);
 }
 
 .tech-frame {
   border-radius: 1.25rem;
-  border: 1px solid #e5e7eb;
-  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(15, 23, 42, 0.35);
   padding: 1rem;
   overflow: hidden;
 }
 
-/* Optional: nicer focus for accessibility */
+
 .about-section :focus-visible {
-  outline: 3px solid rgba(79, 70, 229, 0.35);
+  outline: 3px solid rgba(99,102,241,0.45);
   outline-offset: 3px;
-  border-radius: 0.75rem;
+  border-radius: 0.9rem;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .trait {
+    transition: none;
+  }
+  .trait:hover {
+    transform: none;
+  }
 }
