@@ -1,75 +1,87 @@
 <section class="about-section" id="about">
-  <header class="heading">
-    <p class="eyebrow">About</p>
-    <h2>Who I am</h2>
-  </header>
-  <div class="about-card">
-    <div class="about-grid">
-      <div class="about-me">
-        <p>
-          Frontend developer with a passion for Angular and creating accessible, scalable web
-          experiences.
-        </p>
+  <div class="about-container">
+    <header class="heading">
+      <p class="eyebrow">About</p>
+      <h2>Who I am</h2>
+    </header>
+    <div class="about-content">
+      <div class="about-grid">
+        <div class="about-me">
+          <div class="about-header">
+            <div class="about-avatar">
+              <img src="..." alt="Portrait of [Adam kosovic]" loading="lazy" decoding="async">
+            </div>
 
-        <p>
-          Currently focused on improving performance, accessibility and building scalable Angular
-          applications.
-        </p>
+            <div class="about-intro">
+              <p>
+                Frontend developer with a passion for Angular and creating accessible, scalable web
+                experiences.
+              </p>
+            </div>
+          </div>
 
-        <div class="stat">
-          <span>Experiance</span>
-          <span>5+ years building web applications</span>
-        </div>
-      </div>
-      
-      <aside class="about-aside">
-        <div class="stat">
-          <span class="stat-label">Focus</span>
-          <span class="stat-value">Performance & A11y</span>
-        </div>
-        <div class="stat">
-          <span class="stat-label">Stack</span>
-          <span class="stat-value">Angular + TS</span>
-        </div>
-        <div class="note">
           <p>
-            When I’m not coding, I love exploring new technologies, contributing to open-source
-            projects, and staying up-to-date with the latest trends in web development.
+            Currently focused on improving performance, accessibility and building scalable Angular
+            applications.
           </p>
+
+          <div class="about-stats" role="group" aria-label="Key facts">
+            <div class="stat">
+              <span class="stat-label">Experience</span>
+              <span class="stat-value">2+ years building web applications</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Focus</span>
+              <span class="stat-value">Experiance · Tech Focus · Learning Mindset</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Location</span>
+              <span class="stat-value">Sweden · Remote-friendly</span>
+            </div>
+          </div>
         </div>
-      </aside>
-    </div>
-    <div class="traits-block" aria-labelledby="traits-title">
-      <h3 id="traits-title">Key traits</h3>
-    
-      <ul class="traits" role="list">
-        <li>
-          <button type="button" class="trait" aria-pressed="false">
-            <strong>Problem solver</strong>
-            <span>Loves breaking down complex issues</span>
-          </button>
-        </li>
-    
-        <li>
-          <button type="button" class="trait" aria-pressed="false">
-            <strong>Detail-oriented</strong>
-            <span>Meticulous about code quality and UX</span>
-          </button>
-        </li>
-    
-        <li>
-          <button type="button" class="trait" aria-pressed="false">
-            <strong>Team Player</strong>
-            <span>Enjoys collaborating and sharing knowledge</span>
-          </button>
-        </li>
-      </ul>
-    </div>
-    <div class="tech-block">
-      <h3 class="tech-title">My tech stack includes</h3>
-      <div class="tech-frame">
-        <app-tech></app-tech>
+      </div>
+      <div class="traits-block" aria-labelledby="traits-title">
+        <h3 id="traits-title">Key traits</h3>
+      
+        <ul class="traits" role="list">
+          <li>
+            <button type="button" class="trait" aria-pressed="false">
+              <div class="traits-div-img">
+                <span><img src="assets/icons/brain.svg" alt="BrainIcon" class="trait-img"></span>
+              </div>
+              <strong>Problem solver</strong>
+              <span>Loves breaking down complex issues</span>
+            </button>
+          </li>
+      
+          <li>
+            <button type="button" class="trait" aria-pressed="false">
+              <div class="traits-div-img">
+                <img src="assets/icons/code.svg" alt="codeIcon" class="trait-img">
+              </div>
+              <strong>Performace-mined</strong>
+              <span>Cares about speed, efficiency, and scalability</span>
+            </button>
+          </li>
+      
+          <li>
+            <button type="button" class="trait" aria-pressed="false">
+              <div class="traits-div-img">
+                <img src="assets/icons/users-three.svg" alt="usersIcon" class="trait-img">
+              </div>            
+              <strong>Team Player</strong>
+              <span>Enjoys collaborating and sharing knowledge</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="tech-block">
+        <h3 class="tech-title">My tech stack includes</h3>
+        <div class="tech-frame">
+          <app-tech></app-tech>
+        </div>
       </div>
     </div>
-  </div>
+</div>
 </section>
