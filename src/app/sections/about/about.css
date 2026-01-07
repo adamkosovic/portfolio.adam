@@ -3,7 +3,6 @@
 .about-section{
   position: relative;
   padding-block: clamp(3rem, 6vw, 5rem);
-  padding-inline: var(--gutter);
   scroll-margin-top: 90px;
 }
 
@@ -22,7 +21,6 @@
   margin: 0 auto;
 }
 
-/* Heading */
 .heading{
   text-align: center;
   margin-bottom: 1.9rem;
@@ -65,13 +63,12 @@
   opacity: 0.9;
 }
 
-/* Content divider (gradient line) */
 .about-content{
   padding-top: 1.35rem;
   border-top: 1px solid transparent;
 }
 
-/* Grid */
+
 .about-grid{
   display: grid;
   grid-template-columns: 1.4fr 0.8fr;
@@ -82,7 +79,7 @@
   .about-grid{ grid-template-columns: 1fr; }
 }
 
-/* Avatar + intro */
+
 .about-header{
   display: grid;
   grid-template-columns: 72px 1fr;
@@ -117,7 +114,6 @@
   display: block;
 }
 
-/* Text (merged, no duplicates) */
 .about-me p{
   margin: 0 0 0.95rem 0;
   color: var(--text);
@@ -140,7 +136,6 @@
   margin-top: 1.25rem;
 }
 
-/* Base pill */
 .stat{
   margin: 0;
   display: inline-flex;
@@ -232,31 +227,17 @@
   text-align: left;
   padding: 1.1rem 1.1rem;
   border-radius: 16px;
-
   background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
-
   cursor: pointer;
   display: grid;
   gap: 0.5rem;
   align-content: start;
   min-height: 176px;
-
   position: relative;
   overflow: hidden;
-
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, filter 180ms ease;
-}
-
-.trait::before{
-  content:"";
-  position:absolute;
-  inset: -40%;
-  background: radial-gradient(closest-side, rgba(36,198,220,0.14), transparent 60%);
-  transform: translateX(-30%) translateY(-20%);
-  opacity: 0;
-  transition: opacity 180ms ease;
 }
 
 .trait:hover{
@@ -272,27 +253,6 @@
   outline: none;
   box-shadow: var(--shadow), var(--ring);
   border-color: rgba(36,198,220,0.45);
-}
-
-.trait-icon{
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-
-  display: grid;
-  place-items: center;
-
-  border: 1px solid transparent;
-
-  box-shadow: 0 10px 22px rgba(0,0,0,0.24);
-  margin-bottom: 0.25rem;
-}
-
-.trait-icon i{
-  font-size: 22px;
-  line-height: 1;
-  color: var(--text);
-  opacity: 0.95;
 }
 
 .trait strong{
