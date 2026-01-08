@@ -19,12 +19,16 @@
   --text-soft: rgba(255,255,255,0.72);
   --muted: rgba(255,255,255,0.62);
 
-  --accent: #24C6DC;
-  --accent-2: #514A9D;
-  --accent-3: #7C3AED; 
-  --accent-glow: rgba(36,198,220,0.35);
+  --accent: rgba(90, 200, 255, 0.95);
+  --accent-2: rgba(85, 110, 255, 0.85);
+  --accent-3: rgba(150, 80, 255, 0.75);
+  --accent-glow:rgba(255, 90, 200, 0.75);
 
-  --gradient: linear-gradient(90deg, #24C6DC 0%, #514A9D 100%);
+  --gradient: linear-gradient(    135deg,
+  rgba(90, 200, 255, 0.95),
+  rgba(85, 110, 255, 0.85),
+  rgba(150, 80, 255, 0.75),
+  rgba(255, 90, 200, 0.75));
   --gradient-soft: linear-gradient(90deg, rgba(36,198,220,0.55), rgba(81,74,157,0.55));
 
   --border: rgba(255,255,255,0.10);
@@ -159,10 +163,9 @@ section[id] {
 
 /* ===== Button  ===== */
 .btn {
-  --gradient: linear-gradient(90deg, #24C6DC 0%, #514A9D 100%);
   --bg: #000;
-  --glow: rgba(36, 198, 220, 0.35);
-  --glow-strong: rgba(36, 198, 220, 0.55);
+  --glow: rgba(85, 110, 255, 0.85);
+  --glow-strong: rgba(85, 110, 255, 0.85);
 
   display: inline-flex;
   align-items: center;
