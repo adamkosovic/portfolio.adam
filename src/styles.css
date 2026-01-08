@@ -37,6 +37,11 @@
 
   --container: 980px;
   --gutter: clamp(16px, 5vw, 44px);
+
+  --scroll-track: rgba(255,255,255,0.06);
+  --scroll-thumb: rgba(255,255,255,0.18);
+  --scroll-thumb-hover: rgba(36,198,220,0.45);
+  
 }
 
 
