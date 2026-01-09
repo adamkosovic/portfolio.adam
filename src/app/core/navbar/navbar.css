@@ -1,10 +1,10 @@
 .nav {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 50;
   height: var(--nav-height);
   width: 100%;
-  background-color: var(--nav-bg);
+  background-color: black;
   color: var(--nav-text);
   border-bottom: 1px solid var(--nav-border);
 }
