@@ -1,0 +1,85 @@
+<div class="wrapper">
+  <div class="tabs-container">
+    <button
+      class="tab"
+      [class.active]="activeTab === 'about'"
+      (click)="setTab('about')"
+      type="button"
+    >
+      About
+    </button>
+  
+    <button
+      class="tab"
+      [class.active]="activeTab === 'interests'"
+      (click)="setTab('interests')"
+      type="button"
+    >
+      Interests
+    </button>
+  </div>
+  
+  <div class="content">
+    <ng-container *ngIf="activeTab === 'about'">
+      <div class="panel">
+        <h2>About me</h2>
+        <p>
+          I recently completed a <strong>two-year Frontend Development education</strong>,
+          where I have built a solid foundation in <strong>modern web development</strong>.
+          My main technical focus has been on <strong>Angular</strong> and
+          <strong>TypeScript</strong>, which I have used to develop
+          <strong>component-based, scalable, and maintainable applications</strong>.
+        </p>
+        
+        <p>
+          During my studies, I worked with concepts such as
+          <strong>responsive design</strong>, <strong>state management</strong>,
+          <strong>REST APIs</strong>, and <strong>version control with Git</strong>.
+          I enjoy writing clean, structured code and continuously improving both
+          <strong>performance</strong> and <strong>user experience</strong>.
+        </p>
+        
+        <p>
+          In addition to frontend development, I have developed a growing interest in
+          <strong>backend development</strong>. I am motivated to expand my knowledge in
+          areas such as <strong>server-side logic</strong>, <strong>databases</strong>,
+          and <strong>API development</strong>, with the goal of becoming a
+          <strong>full-stack developer</strong> in the future.
+        </p>
+        
+        <p>
+          I am a <strong>curious, motivated, and detail-oriented developer</strong>
+          who enjoys learning new technologies and continuously improving my technical
+          skills.
+        </p>
+      </div>
+    </ng-container>
+  
+    <ng-container *ngIf="activeTab === 'interests'">
+      <div class="panel">
+        <h2>My interests</h2>
+        <p>
+          Outside of work and studies, I spend a lot of time with my
+          <strong>family</strong>, <strong>girlfriend</strong>, and
+          <strong>friends</strong>. I value collaboration, communication, and balance,
+          which I believe are important qualities both professionally and personally.
+        </p>
+        
+        <p>
+          I am very interested in <strong>sports and physical training</strong> and
+          regularly play <strong>football</strong>. Staying active helps me maintain
+          focus, discipline, and energy in my daily work.
+        </p>
+        
+        <p>
+          I also enjoy <strong>traveling</strong>, which has strengthened my ability to
+          adapt to new environments and perspectives. In my free time, I often continue
+          to develop my skills by <strong>learning new programming concepts</strong>,
+          <strong>exploring new technologies</strong>, and working on
+          <strong>personal coding projects</strong>.
+        </p>
+      </div>
+    </ng-container>
+  </div>
+</div>
+

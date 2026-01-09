@@ -34,7 +34,7 @@
   margin: 0 0 0.6rem 0;
 }
 
-/* Gradient title (fixed) */
+
 .heading h2{
   font-size: clamp(2rem, 3.2vw, 2.7rem);
   font-weight: 720;
@@ -63,92 +63,23 @@
   opacity: 0.9;
 }
 
-.about-content{
-  padding-top: 1.35rem;
-  border-top: 1px solid transparent;
+
+/* ===== Profile-tabs ===== */
+
+.profile-tabs{
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: center;
 }
-
-
-.about-grid{
-  display: grid;
-  grid-template-columns: 1.4fr 0.8fr;
-  gap: clamp(1.25rem, 3vw, 2rem);
-}
-
-@media (max-width: 860px){
-  .about-grid{ grid-template-columns: 1fr; }
-}
-
-
-.about-header{
-  display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 1rem;
-  align-items: start;
-  margin-bottom: 0.9rem;
-}
-
-@media (max-width: 520px){
-  .about-header{ grid-template-columns: 56px 1fr; }
-}
-
-.about-avatar{
-  width: 72px;
-  height: 72px;
-  border-radius: 18px;
-  overflow: hidden;
-
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.03);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
-}
-
-@media (max-width: 520px){
-  .about-avatar{ width: 56px; height: 56px; border-radius: 16px; }
-}
-
-.about-avatar img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.about-me p {
-  margin: 0 0 1.1rem;
-  max-width: 62ch;
-
-  font-size: 1.15rem;
-  line-height: 1.75;
-  font-weight: 400;
-
-  color: var(--text);
-  opacity: 0.92;
-}
-
-.about-intro p {
-  margin-bottom: 1.6rem;
-
-  font-size: 1.35rem;
-  line-height: 1.6;
-  font-weight: 500;
-
-  opacity: 1;
-}
-
-.about-intro p:first-child{
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 
 /* ===== STATS ===== */
 
 .about-stats{
   display: flex;
   width: 100%;
-  margin-top: 1.25rem;;
+  margin-top: 1.25rem;
+  margin-bottom: 3rem;
 }
 
 .stat{
@@ -159,11 +90,12 @@
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
+  font-size: 1.3rem;
 
-  padding: 1.2rem 3rem;
+  padding: 1.5rem 3rem;
   border-radius: 8px;
-  border: 1px solid var(--border-strong);
-  background: transparent;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
 
   box-shadow: 0 10px 26px rgba(0,0,0,0.24);
   transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
