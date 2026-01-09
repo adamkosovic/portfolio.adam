@@ -1,18 +1,64 @@
-.contact-section {
-  max-width: 700px;
+.contact-section{
+  position: relative;
+  padding-block: clamp(3rem, 6vw, 5rem);
+  scroll-margin-top: 90px;
+}
+
+.contact-section::after{
+  content:"";
+  position:absolute;
+  inset: 0;
+  pointer-events:none;
+  opacity: 0.95;
+}
+
+.contact-container{
+  position: relative;
+  z-index: 1;
+  max-width: var(--container);
   margin: 0 auto;
-  padding: 80px 16px;
 }
 
-.contact-title {
+.heading{
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 1.9rem;
 }
 
-.contact-intro {
-  text-align: center;
-  margin-bottom: 40px;
-  opacity: 0.8;
+.heading .eyebrow{
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: 0 0 0.6rem 0;
+}
+
+/* Gradient title (fixed) */
+.heading h2{
+  font-size: clamp(2rem, 3.2vw, 2.7rem);
+  font-weight: 720;
+  line-height: 1.08;
+  margin: 0;
+  letter-spacing: 0.01em;
+
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.95),
+    rgba(255,255,255,0.72)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heading h2::after{
+  content:"";
+  display:block;
+  width: 86px;
+  height: 2px;
+  margin: 0.9rem auto 0;
+  background: var(--gradient);
+  border-radius: 999px;
+  opacity: 0.9;
 }
 
 

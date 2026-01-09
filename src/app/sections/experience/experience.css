@@ -1,13 +1,68 @@
-.section {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 40px 16px;
+
+
+.experiance-section{
+  position: relative;
+  padding-block: clamp(3rem, 6vw, 5rem);
+  scroll-margin-top: 90px;
 }
 
-.title {
-  text-align: center;
-  margin-bottom: 48px;
+.experiance-section::after{
+  content:"";
+  position:absolute;
+  inset: 0;
+  pointer-events:none;
+  opacity: 0.95;
 }
+
+.experiance-container{
+  position: relative;
+  z-index: 1;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.heading{
+  text-align: center;
+  margin-bottom: 1.9rem;
+}
+
+.heading .eyebrow{
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: 0 0 0.6rem 0;
+}
+
+/* Gradient title (fixed) */
+.heading h2{
+  font-size: clamp(2rem, 3.2vw, 2.7rem);
+  font-weight: 720;
+  line-height: 1.08;
+  margin: 0;
+  letter-spacing: 0.01em;
+
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.95),
+    rgba(255,255,255,0.72)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heading h2::after{
+  content:"";
+  display:block;
+  width: 86px;
+  height: 2px;
+  margin: 0.9rem auto 0;
+  background: var(--gradient);
+  border-radius: 999px;
+  opacity: 0.9;
+}
+
 
 
 .timeline {
