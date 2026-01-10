@@ -1,87 +1,12 @@
 <div class="tech-marquee">
   <ul class="tech-stack">
-    <li data-name="JavaScript" title="JavaScript"> 
-      <i class="devicon-javascript-plain colored"></i>
-    </li>
-    <li>
-      <i class="devicon-angular-plain colored"></i>
-    </li>
-    <li>
-      <i class="devicon-typescript-plain colored"></i>
-    </li>
-    <li>
-      <i class="devicon-git-plain colored"></i>
-    </li>
-    <li>
-      <i class="devicon-css3-plain colored"></i>
-    </li>
-    <li>
-      <i class="devicon-sass-original colored"></i>
-    </li>
-    <li>
-      <i class="devicon-react-original colored"></i>
-    </li>
-  
-    <li>
-      <i class="devicon-html5-plain colored"></i>
-    </li>
-    <li>
-      <i class="devicon-bootstrap-plain colored"></i>
-    </li>
-    <li>
-      <i class="devicon-dotnetcore-plain colored"></i>
-    </li>
-  
-    <li>
-      <i class="devicon-nodejs-plain colored"></i>
-    </li>
-  
-    <li>
-      <i class="devicon-npm-plain colored"></i>
-    </li>
-  
-    <li>
-      <i class="devicon-csharp-plain colored"></i>
-    </li>
-  
-    <li>
-      <i class="devicon-postgresql-plain colored"></i>
-    </li>
-  
-    <li>
-      <i class="devicon-postman-plain colored"></i>
-    </li>
-  
-    <li>
-      <i class="devicon-azuresqldatabase-plain colored"></i>
-    </li>
-    <li>
-      <i class="devicon-figma-plain colored"></i>
-    </li>
-  
-    <li>
-      <i class="devicon-docker-plain colored"></i>
+    <li *ngFor="let t of tech" [attr.data-name]="t.name">
+      <i [class]="t.icon"></i>
     </li>
   </ul>
 
   <ul class="tech-stack clone" aria-hidden="true">
-    <li data-name="JavaScript"><i class="devicon-javascript-plain colored"></i></li>
-    <li><i class="devicon-angular-plain colored"></i></li>
-    <li><i class="devicon-typescript-plain colored"></i></li>
-    <li><i class="devicon-git-plain colored"></i></li>
-    <li><i class="devicon-css3-plain colored"></i></li>
-    <li><i class="devicon-sass-original colored"></i></li>
-    <li><i class="devicon-react-original colored"></i></li>
-    <li><i class="devicon-html5-plain colored"></i></li>
-    <li><i class="devicon-bootstrap-plain colored"></i></li>
-    <li><i class="devicon-dotnetcore-plain colored"></i></li>
-    <li><i class="devicon-nodejs-plain colored"></i></li>
-    <li><i class="devicon-npm-plain colored"></i></li>
-    <li><i class="devicon-csharp-plain colored"></i></li>
-    <li><i class="devicon-postgresql-plain colored"></i></li>
-    <li><i class="devicon-postman-plain colored"></i></li>
-    <li><i class="devicon-azuresqldatabase-plain colored"></i></li>
-    <li><i class="devicon-figma-plain colored"></i></li>
-    <li><i class="devicon-docker-plain colored"></i></li>
+    <li *ngFor="let t of tech" [attr.data-name]="t.name">
+      <i [class]="t.icon"></i>
   </ul>
 </div>
