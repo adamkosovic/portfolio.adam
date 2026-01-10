@@ -1,8 +1,7 @@
 .tech-marquee {
-  overflow: hidden;
   width: 100%;
   background: transparent;
-  padding: 1.5rem 0;
+  padding: 1.5rem 0 3rem;
 }
 
 .tech-marquee {
@@ -19,10 +18,77 @@
   animation: scroll 25s linear infinite;
 }
 
+.tech-marquee:hover .tech-stack {
+  animation-play-state: paused;
+}
+
+
 .tech-stack li {
+  position: relative;
   font-size: 3rem;
   display: flex;
   align-items: center;
+  padding: 8px;
+  border-radius: 12px;
+  cursor: default;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.tech-stack li:hover {
+  transform: translateY(-2px) scale(1.03);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Tooltip bubble */
+.tech-stack li::after {
+  content: attr(data-name);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%);
+  white-space: nowrap;
+
+  font-size: 0.85rem;
+  font-family: var(--font-sans, system-ui, sans-serif);
+  color: #f5f5f5;
+
+  background: rgba(15, 15, 15, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  padding: 6px 10px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s ease, transform 0.12s ease;
+}
+
+/* Liten pil */
+.tech-stack li::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 3px);
+  transform: translateX(-50%) rotate(45deg);
+
+  width: 10px;
+  height: 10px;
+  background: rgba(15, 15, 15, 0.95);
+  border-left: 1px solid rgba(255, 255, 255, 0.10);
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s ease;
+}
+
+.tech-stack li:hover::after,
+.tech-stack li:hover::before {
+  opacity: 1;
+}
+
+.tech-stack li:hover::after {
+  transform: translateX(-50%) translateY(-2px);
 }
 
 
