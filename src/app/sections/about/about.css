@@ -63,7 +63,6 @@
   opacity: 0.9;
 }
 
-
 /* ===== Profile-tabs ===== */
 
 .profile-tabs{
@@ -71,51 +70,6 @@
   margin-bottom: 4rem;
   display: flex;
   justify-content: center;
-}
-
-/* ===== STATS ===== */
-
-.about-stats{
-  display: flex;
-  width: 100%;
-  margin-top: 1.25rem;
-  margin-bottom: 3rem;
-}
-
-.stat{
-  flex: 1;
-  width: 100%;
-  justify-content: space-around;
-  margin: 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  font-size: 1.3rem;
-
-  padding: 1.5rem 3rem;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: var(--surface-2);
-
-  box-shadow: 0 10px 26px rgba(0,0,0,0.24);
-  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
-
-  line-height: 1.2;
-}
-
-.stat:focus-visible{
-  outline: none;
-  box-shadow: 0 18px 45px rgba(0,0,0,0.34), var(--ring);
-}
-
-@media (max-width: 520px){
-  .stat{ padding: 0.6rem 0.85rem; }
-  .stat-value{
-    max-width: 26ch;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
 }
 
 /* ===== TRAITS ===== */

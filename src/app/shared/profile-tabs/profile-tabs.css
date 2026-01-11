@@ -1,8 +1,23 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  height: auto;
+  min-height: 0;
+
+  margin: 0;
+  padding: 0;
+
+  gap: 16px; 
+}
 
 
 .tabs-container {
   display: inline-flex;
-  margin: 0 auto 28px auto; 
+  justify-content: center;
+  margin: 0; 
   gap: 6px;
   padding: 6px;
   border-radius: 14px;
