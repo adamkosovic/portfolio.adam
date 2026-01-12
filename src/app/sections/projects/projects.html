@@ -4,12 +4,17 @@
       <p class="eyebrow">Projects</p>
       <h2>Check Out Some of My Recent Work</h2>
     </header>
-  
+    
     <div class="projects__list">  
-      <app-project-cards
-        *ngFor="let project of projects"
+      <div 
+        class="project-item"
+        >
+        <app-project-cards 
+        *ngFor="let project of projects; let i = index"
         [project]="project"
-      ></app-project-cards>
+        [reverse]="i % 2 === 1"
+        ></app-project-cards>
+      </div>
     </div>
   </div>
 </section>

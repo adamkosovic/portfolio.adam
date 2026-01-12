@@ -6,7 +6,7 @@ export interface Project {
   imageUrl: string;
   imageAlt: string;
 
-  tags: TechTag[];
+  tags: string[];
 
   liveUrl?: string;
   repoUrl?: string;

@@ -1,46 +1,54 @@
-<article class="card">
-  <div class="card-media">
-    <img 
-      class="card-image"
-      [src]="project.imageUrl" 
-      alt="project.imageAlt"
-      loading="lazy"
-    />
-  </div>
-
-  <div class="card-body">
-    <h3 class="card-title">{{ project.title }}</h3>
-
-    <ul class="card-tags" aria-label="Technologies used">
-      <li class="tag" *ngFor="let tag of project.tags">{{ tag }}</li>
-    </ul>
-
-    <p class="card-desc">{{ project.description}}</p>
-
-    <div class="card-actions">
-      <a 
-        href=""
-        class="btn btn--ghost"
-        [href]="project.repoUrl"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Open Github repository"
-      >
-        <i class="bi bi-github"></i>
-        <span>Github repository</span>
-      </a>
-
-      <a 
-        href="project.liveUrl" 
-        class="link link-icon"
-        [href]="project.liveUrl"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Open live preview"
-      >
-      Live preview
-        <i class="bi bi-arrow-right"></i>
-      </a>
+<article class="card-wrap">
+  <div 
+    class="card rgb"
+    #cardEl
+    (mousemove)="tilt($event, cardEl)"
+    (mouseleave)="resetTilt(cardEl)"
+    [class.reverse]="reverse"
+  >
+    <div class="card-media">
+      <img 
+        class="card-image"
+        [src]="project.imageUrl" 
+        alt="project.imageAlt"
+        loading="lazy"
+      />
+    </div>
+  
+    <div class="card-body">
+      <h3 class="card-title">{{ project.title }}</h3>
+  
+      <ul class="card-tags" aria-label="Technologies used">
+        <li class="tag" *ngFor="let tag of project.tags">{{ tag }}</li>
+      </ul>
+  
+      <p class="card-desc">{{ project.description}}</p>
+  
+      <div class="card-actions">
+        <a 
+          href=""
+          class="btn btn--lg"
+          [href]="project.repoUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open Github repository"
+        >
+          <i class="bi bi-github"></i>
+          <span>Github repository</span>
+        </a>
+  
+        <a 
+          href="project.liveUrl" 
+          class="btn btn--lg btn--outline"
+          [href]="project.liveUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open live preview"
+        >
+        Live preview
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
     </div>
   </div>
 </article>
