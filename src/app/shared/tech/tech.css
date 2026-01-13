@@ -10,6 +10,12 @@
   padding: 1.5rem 0;
 }
 
+.tech-root.sm .tech-marquee {
+  height: 40px;
+  padding: 0.5rem 0;
+}
+
+
 
 .tech-marquee:hover .tech-stack {
   animation-play-state: paused;
@@ -32,6 +38,10 @@
   animation: scroll 25s linear infinite;
 }
 
+.tech-root.sm .tech-stack {
+  gap: 0.2rem;
+}
+
 
 .tech-stack.clone {
   margin-left: 3rem;
@@ -48,7 +58,7 @@
 
 
 
-.tech-stack li {
+.tech-root li {
   position: relative;
   font-size: 3rem;
   display: flex;
@@ -60,10 +70,27 @@
   z-index: 1; 
 }
 
+.tech-root.sm li {
+  position: relative;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  cursor: default;
+  transition: transform 0.15s ease, background 0.15s ease;
+  z-index: 1; 
+}
+
 .tech-stack li:hover {
   transform: translateY(-2px) scale(1.03);
   background: rgba(255, 255, 255, 0.06);
   z-index: 10; 
+}
+
+.tech-root.sm .tech-stack li:hover {
+  transform: translateY(-1px) scale(1.02);
+  background: none;
+  cursor: pointer;
 }
 
 
@@ -121,4 +148,14 @@
 
 .tech-stack li:hover::after {
   transform: translateX(-50%) translateY(2px);
+}
+
+
+.tech-marquee.is-static .tech-stack {
+  animation: none !important;
+  transform: none !important;
+}
+
+.tech-marquee.is-static .clone {
+  display: none !important;
 }

@@ -13,25 +13,25 @@ import { Project } from '../../model/project.model';
 export class ProjectsComponent {
   projects: Project[] = [
     {
-      title: 'Expert Notes',
-      description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      title: 'E-commerce - Fullstack',
+      description: 'A full-stack e-commerce application with shopping cart, favorites, and admin product management.',
       imageUrl: 'assets/images/bookquote.png',
       imageAlt: 'Screenshot of Expert Notes app',
-      tags: ['TypeScript', 'Vite.js'],
+      tags: ['Angular', 'TypeScript', 'NetCore','Csharp', 'PostgreSQL'],
       repoUrl: 'https://github.com/...',
       liveUrl: 'https://...',
     },
     {
-      title: 'Expert Notes',
-      description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.lorem ipsum dolor sit amet, åconsectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      title: 'BookQuote - Fullstack',
+      description: 'A full-stack web application for managing books and quotes, built with Angular frontend and .NET backend.',
       imageUrl: 'assets/images/bookquote.png',
       imageAlt: 'Screenshot of Expert Notes app',
-      tags: ['TypeScript', 'Vite.js'],
+      tags: ['Angular', 'TypeScript', 'Bootstrap', 'NetCore','Csharp', 'PostgreSQL'],
       repoUrl: 'https://github.com/...',
       liveUrl: 'https://...',
     },
     {
-      title: 'Expert Notes',
+      title: 'Music - Landingpage',
       description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       imageUrl: 'assets/images/bookquote.png',
       imageAlt: 'Screenshot of Expert Notes app',
