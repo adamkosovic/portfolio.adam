@@ -5,7 +5,14 @@
       <h2>Experience</h2>
     </header>
     <ul class="timeline">
-      <li class="item" *ngFor="let exp of experince; let i = index; trackBy: trackByIndex">
+      <li 
+        class="item"
+        *ngFor="let exp of experince; let i = index; trackBy: trackByIndex"
+        [class.leftItem]="i % 2 === 0"
+        [class.rightItem]="i % 2 !== 0"
+      >
+        <span class="date">{{ exp.period }}</span>
+
         <span class="dot" aria-hidden="true"></span>
   
         <app-experience-card  

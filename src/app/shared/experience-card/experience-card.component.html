@@ -1,15 +1,22 @@
 <article class="card" [class.left]="side === 'left'" [class.right]="side === 'right'">
-  <header class="header">
-    <h3 class="role">{{ experience.role }}</h3>
-    <div class="meta">
-      <span>{{ experience.company }}</span> • <span>{{ experience.location }}</span>
+  <div class="header">
+    <div class="header-icon">
+      <img 
+        class="company-logo"
+        [alt]="experience.company + ' logo'" 
+      />
     </div>
-    <div class="dates">{{ experience.startDate }} – {{ experience.endDate }}</div>
-  </header>
+    <div class="header-body">
+      <h3 class="role">{{ experience.role }}</h3>
+      <div class="meta">
+        <span>{{ experience.company }}</span> • <span>{{ experience.location }}</span>
+      </div>
+      <p class="desc">{{ experience.description }}</p>
+    
+      <ul class="tech">
+        <li *ngFor="let t of experience.technologies">{{ t }}</li>
+      </ul>
+    </div>
+  </div>
 
-  <p class="desc">{{ experience.description }}</p>
-
-  <ul class="tech">
-    <li *ngFor="let t of experience.technologies">{{ t }}</li>
-  </ul>
 </article>

@@ -6,6 +6,6 @@ export interface Experience {
   location: string;
   technologies: string[];
   description: string;
-  startDate: string;
-  endDate: string;
+  period: string;
+  logoUrl: string;
 }
