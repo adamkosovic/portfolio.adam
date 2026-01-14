@@ -2,73 +2,192 @@
   display: block;
 }
 
-:host(.left) {
-  grid-column: 1;
-  justify-self: end;
-}
-
-:host(.right) {
-  grid-column: 3;
-  justify-self: start;
-}
-
 .card {
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 16px;
-  max-width: 420px;
+  --card-radius: 18px;
+  --card-border: rgba(255,255,255,0.14);
+  --card-border-strong: rgba(255,255,255,0.22);
+  --card-bg-top: rgba(255,255,255,0.085);
+  --card-bg-bot: rgba(255,255,255,0.028);
+  --glow: rgba(255,255,255,0.14);
+
+  position: relative;
+  width: 100%;
+  max-width: 400px;
   margin: 0;
+
+  padding: 18px 18px 16px;
+  border-radius: var(--card-radius);
+
+  color: rgba(255,255,255,0.92);
+  background: linear-gradient(180deg, var(--card-bg-top), var(--card-bg-bot));
+  border: 1px solid var(--card-border);
+
+  box-shadow:
+    0 18px 50px rgba(0,0,0,0.26),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+
+  transition:
+    transform 160ms ease,
+    box-shadow 240ms ease,
+    border-color 240ms ease,
+    background 240ms ease;
+
+  overflow: hidden;
 }
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: var(--card-radius);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 240ms ease;
+
+  background:
+    radial-gradient(520px circle at 26% 0%,
+      var(--glow),
+      transparent 58%);
+}
+
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: calc(var(--card-radius) - 1px);
+  pointer-events: none;
+  border: 1px solid rgba(255,255,255,0.06);
+  opacity: 1;
+}
+
+.card:hover {
+  border-color: var(--card-border-strong);
+  box-shadow:
+    0 28px 78px rgba(0,0,0,0.36),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+
+.card:focus-within {
+  outline: 2px solid rgba(255,255,255,0.28);
+  outline-offset: 3px;
+}
+
 
 .header {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
+
 
 :host(.left) .header {
   flex-direction: row-reverse;
 }
 
 
-:host(.left) .header {
-  grid-template-columns: 1fr auto;
-}
-
-:host(.left) .header-icon {
-  grid-column: 2;
-  justify-self: start;
-}
-
-:host(.left) .header-body {
-  grid-column: 1;
-}
-
-
 .header-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  flex-shrink: 0;
 
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
+  display: grid;
+  place-items: center;
+
+  background: var(--gradient);
+  position: relative;
+}
+
+.header-icon img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
+
+.role {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+
+.meta {
+  margin-top: 4px;
+  font-size: 0.78rem;
+  opacity: 0.74;
+  line-height: 1.25;
 
   display: flex;
-  align-items: center;
-  justify-content: center;
-
-  flex-shrink: 0;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
-.company-logo {
-  width: 70%;
-  height: 70%;
-  object-fit: contain;
-  border-radius: 50%;
+:host(.left) .header-body { text-align: left; }
+:host(.left) .meta { justify-content: flex-start; }
+
+:host(.right) .header-body { text-align: left; }
+:host(.right) .meta { justify-content: flex-start; }
+
+
+
+.desc {
+  margin-top: 12px;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  opacity: 0.92;
 }
 
+
+.tech {
+  margin: 14px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tech li {
+  list-style: none;
+
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin-top: 15px;
+
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.12);
+
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.88);
+
+  transition: transform 160ms ease, background 200ms ease, border-color 200ms ease;
+}
+
+/* =========================
+   Mobile
+========================= */
 @media (max-width: 768px) {
   .card {
     max-width: none;
+    border-radius: 16px;
+    padding: 16px;
+  }
+
+  .header {
+    gap: 12px;
+  }
+
+  .header-icon {
+    width: 42px;
+    height: 42px;
   }
 }

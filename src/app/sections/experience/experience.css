@@ -88,6 +88,7 @@
   background: #e5e5e5;
   z-index: 0;
   pointer-events: none;
+  opacity: 0.7;
 }
 
 .timeline::after {
@@ -102,6 +103,7 @@
   border-right: 8px solid transparent;
   border-bottom: 14px solid #e5e5e5;
   z-index: 1;
+  opacity: 0.75;
 }
 
 
@@ -155,8 +157,8 @@
   position:absolute;
   top:50%;
   transform: translateY(-50%);
-  height:3px;
-  width: 85px;
+  height:2px;
+  width: 60px;
   background: #e5e5e5;
   z-index: 2;
 }
