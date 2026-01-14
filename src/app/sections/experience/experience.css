@@ -66,10 +66,9 @@
 
 
 .timeline {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   position: relative;
+  padding: 20px 0;
+  list-style: none;
 }
 
 .timeline::before {
@@ -78,10 +77,27 @@
   top: 0;
   bottom: 0;
   left: 50%;
+  transform: translateX(-50%);
+  
   width: 2px;
   background: #e5e5e5;
-  transform: translateX(-50%);
 }
+
+.timeline::after {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 0;
+  height: 0;
+
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 14px solid #e5e5e5;
+}
+
 
 .item {
   display: grid;
@@ -93,8 +109,8 @@
 
 .dot {
   grid-column: 2;
-  width: 14px;
-  height: 14px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background: #e5e5e5;
   margin: 8px auto 0;
