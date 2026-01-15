@@ -1,0 +1,120 @@
+
+<section class="skills-section section" id="skills">
+  <div class="skills-container">
+    <header class="heading">
+      <p class="eyebrow">A quick overview of what I am comfortable with and use in projects</p>
+      <h2>Skills</h2>
+    </header>
+
+    <div class="skills__grid">
+      <div class="skills__bars">
+        <h3>Frontend</h3>
+  
+        <div class="bar">
+          <div class="bar__top">
+            <span>Angular</span><span class="bar__value">85%</span>
+          </div>
+          <div class="bar__track" style="--p: 85">
+            <div class="bar__fill"></div>
+          </div>
+        </div>
+  
+        <div class="bar">
+          <div class="bar__top">
+            <span>TypeScript</span><span class="bar__value">80%</span>
+          </div>
+          <div class="bar__track" style="--p: 80">
+            <div class="bar__fill"></div>
+          </div>
+        </div>
+  
+        <div class="bar">
+          <div class="bar__top">
+            <span>RxJS</span><span class="bar__value">70%</span>
+          </div>
+          <div class="bar__track" style="--p: 70">
+            <div class="bar__fill"></div>
+          </div>
+        </div>
+  
+        <div class="bar">
+          <div class="bar__top">
+            <span>SCSS</span><span class="bar__value">78%</span>
+          </div>
+          <div class="bar__track" style="--p: 78">
+            <div class="bar__fill"></div>
+          </div>
+        </div>
+  
+        <div class="bar">
+          <div class="bar__top">
+            <span>HTML</span><span class="bar__value">90%</span>
+          </div>
+          <div class="bar__track" style="--p: 90">
+            <div class="bar__fill"></div>
+          </div>
+        </div>
+  
+        <div class="bar">
+          <div class="bar__top">
+            <span>Git / GitHub</span><span class="bar__value">75%</span>
+          </div>
+          <div class="bar__track" style="--p: 75">
+            <div class="bar__fill"></div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- HÖGER: 4 runda procent -->
+      <div class="skills__circles">
+        <h3>Övrigt</h3>
+  
+        <div class="circles">
+          <div class="circle" style="--p: 85">
+            <div class="circle__inner">
+              <div class="circle__num">85%</div>
+              <div class="circle__label">UI/UX</div>
+            </div>
+          </div>
+  
+          <div class="circle" style="--p: 78">
+            <div class="circle__inner">
+              <div class="circle__num">78%</div>
+              <div class="circle__label">Responsive</div>
+            </div>
+          </div>
+  
+          <div class="circle" style="--p: 70">
+            <div class="circle__inner">
+              <div class="circle__num">70%</div>
+              <div class="circle__label">Testing</div>
+            </div>
+          </div>
+  
+          <div class="circle" style="--p: 78">
+            <div class="circle__inner">
+              <div class="circle__num">78%</div>
+              <div class="circle__label">APIs</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="traits-block" aria-labelledby="traits-title">
+      <h3>My stack includes</h3>
+      <div class="tech-block">
+        <div class="tech-frame">
+          <button type="button" 
+            class="btn tech-toggle"
+            (click)="marqueeOn = !marqueeOn"
+            [attr.aria-pressed]="!marqueeOn"
+            >
+            {{ marqueeOn ? 'See all' : 'Dont see all' }}
+          </button>
+          <app-tech [marquee]="marqueeOn" size="md"></app-tech>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

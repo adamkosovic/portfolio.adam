@@ -148,11 +148,6 @@
     rgba(150, 80, 255, 0.75),
     rgba(255, 90, 200, 0.75)
   );
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
 
   pointer-events: none;
 }
