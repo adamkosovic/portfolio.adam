@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BurgerMenu } from '../../shared/burger-menu/burger-menu';
-import { CommonModule, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [BurgerMenu, CommonModule, NgIf],
+  imports: [BurgerMenu, CommonModule],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
 })
