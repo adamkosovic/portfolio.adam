@@ -1,17 +1,4 @@
-:root {
-  --floating-nav-offset: 96px; /* nav height + top */
 
-  --nav-h: 68px;
-  --nav-max: 1120px;
-
-  --nav-bg: rgba(0,0,0,0.55);
-  --nav-border: rgba(255,255,255,0.14);
-  --nav-shadow: 0 18px 55px rgba(0,0,0,0.35);
-
-  --nav-text: rgba(255,255,255,0.92);
-  --nav-muted: rgba(255,255,255,0.75);
-  --ring: rgba(36, 198, 220, 0.6);
-}
 
 #hero {
   scroll-margin-top: var(--floating-nav-offset);
@@ -36,7 +23,7 @@ section {
 
   border-radius: 999px;
   border: 1px solid var(--nav-border);
-  background: var(--nav-bg);
+  background: var(--surface);
 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -48,45 +35,24 @@ section {
   height: 100%;
   display: flex;
   align-items: center;
-
+  gap: clamp(10px, 1.8vw, 22px);
   padding-inline: clamp(12px, 2vw, 18px);
-  gap: clamp(10px, 2vw, 18px);
-}
-
-
-
-.nav-logo{
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-
-  padding: 8px 10px;
-  border-radius: 999px;
-
-  text-decoration: none;
-  color: var(--nav-text);
-
-  transition: background 160ms ease, transform 160ms ease;
 }
 
 
 /*--------- LOGO -------*/
 
-.nav-logo:hover{
-  background: rgba(255,255,255,0.06);
-}
-
-.nav-logo:focus-visible{
-  outline: 2px solid var(--ring);
-  outline-offset: 3px;
+.nav-logo{
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
 }
 
 .nav-logo img{
-  width: clamp(36px, 4vw, 46px);
-  height: clamp(36px, 4vw, 46px);
+  width: clamp(46px, 4vw, 46px);
+  height: clamp(46px, 4vw, 46px);
   border-radius: 50%;
   object-fit: cover;
-  border: 1px solid rgba(255,255,255,0.12);
 }
 
 .nav-logo h2{
@@ -105,11 +71,9 @@ section {
   list-style: none;
   margin: 0;
   padding: 0;
-
   display: flex;
   align-items: center;
-  justify-content: center;
-
+  justify-content: end;
   flex: 1;            
   min-width: 0;
   white-space: nowrap;
@@ -148,80 +112,7 @@ section {
 
 
 
-@media (max-width: 1024px) {
-  .nav-logo h2 {
-    letter-spacing: 0.04em;
-  }
-
-  .btn {
-    display: none; /* eller gör den till ikon om du vill */
-  }
-}
-
-
-@media (max-width: 900px) {
-  .nav-burger-menu {
-    display: inline-flex;
-  }
-
-  
-  .nav-list {
-    position: absolute;
-    top: calc(100% + 10px);
-    right: 0;
-
-    width: min(360px, calc(100vw - 24px)); 
-    padding: 12px;
-    margin: 0;
-
-    display: grid;
-    gap: 6px;
-
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 14px;
-    box-shadow: 0 16px 40px rgba(0,0,0,0.35);
-
-    opacity: 0;
-    transform: translateY(-8px);
-    pointer-events: none;
-    transition: opacity 180ms ease, transform 180ms ease;
-
-    z-index: 1000;
-    background-color: var(--nav-bg);
-  }
-
-  .nav-list.active {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-
-  .nav-link {
-    display: flex;
-    align-items: center;
-    min-height: 44px;
-    padding: 10px 12px;
-    border-radius: 10px;
-  }
-
-  .nav-link:hover {
-    background: rgba(255,255,255,0.06);
-  }
-
-  .nav-backdrop {
-    position: fixed;
-    inset: 0;
-  }
-}
-
-
-
-
 @media (max-width: 768px) {
-  .btn {
-    display: none;
-  }
-
   .nav-list {
     position: absolute;
     top: calc(100% + 10px); 
@@ -232,7 +123,6 @@ section {
     display: grid;
     gap: 6px;
     border: 1px solid rgba(0,0,0,0.08);
-    border-radius: 14px;
     box-shadow: 0 16px 40px rgba(0,0,0,0.16);
     opacity: 0;
     transform: translateY(-8px);
@@ -268,19 +158,5 @@ section {
   .nav-backdrop {
     position: fixed;
     inset: 0;
-  }
-}
-
-@media (max-width: 600px) {
-  .nav {
-    top: 14px;
-    width: calc(100vw - 16px);
-    border-radius: 20px;  
-    padding: 6px 10px;
-  }
-
-  .nav-logo img {
-    width: 40px;
-    height: 40px;
   }
 }
