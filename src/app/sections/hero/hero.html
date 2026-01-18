@@ -16,20 +16,27 @@
       </div>
       <div class="btns">
         <button class="btn btn--secondary btn--lg">
-          <img src="./assets/icons/read-cv-logo.svg" alt="CVIcon">
           Download CV           
         </button>
         <button class="btn btn--primary btn--lg">
-          <img src="./assets/icons/paper-plane-tilt.svg" alt="SendIcon">
+          <i class="ph ph-paper-plane-tilt"></i>
           Contact Me           
         </button>
       </div>
     </div>
     <div class="hero-right">
-      <div class="hero-image-container">
-        <span>
-          <img src="assets/images/profile.jpg" alt="Bild på mig" />
-        </span>
+        <div
+          class="hero-tilt"
+          #tiltEl
+          (pointermove)="tilt($event, tiltEl)"
+          (pointerleave)="resetTilt(tiltEl)"
+        >
+        <div class="hero-ring">
+          <span class="hero-image">
+            <img src="assets/images/profile.jpg" alt="Bild på mig" />
+            <i class="hero-shine"></i>
+          </span>
+        </div>
       </div>
     </div>
   </div>
