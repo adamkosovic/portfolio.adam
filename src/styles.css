@@ -1,326 +1,371 @@
-/* ===== Reset -> base -> variabler -> layout -> formulär -> scrollbar ===== */
-
+/* ========================================================================== */
+/* style.css — Reset -> Base -> Tokens -> Layout -> Forms/Focus -> Components -> Scrollbar */
+/* ========================================================================== */
 
 /* ==========================================================================
    1) RESET
    ========================================================================== */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+   *,
+   *::before,
+   *::after {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+   }
+   
+   /* ==========================================================================
+      2) TOKENS / VARIABLER
+      ========================================================================== */
+   :root {
+     /* Canvas */
+     --bg: #0b1020; 
+   
+     /* Surfaces */
+     --surface: rgba(255, 255, 255, 0.045);
+     --surface-2: rgba(255, 255, 255, 0.025);
+   
+     /* Text */
+     --text: rgba(255, 255, 255, 0.92);
+     --text-soft: rgba(255, 255, 255, 0.72);
+     --muted: rgba(255, 255, 255, 0.62);
+   
+     /* Typography */
+     --font: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+   
+     /* Brand (tydlig blå identitet) */
+     --brand: #5ac8ff;
+     --brand-2: #556eff;
+     --brand-glow: rgba(90, 200, 255, 0.35);
+   
+     /* Accent (mappas till brand för konsekvens) */
+     --accent: var(--brand);
+     --accent-2: var(--brand-2);
+     --accent-3: rgba(150, 80, 255, 0.75);
+   
+     /* Gradient (mer blådominerad) */
+     --gradient: linear-gradient(
+       135deg,
+       rgba(90, 200, 255, 0.95),
+       rgba(85, 110, 255, 0.92),
+       rgba(120, 110, 255, 0.75)
+     );
+   
+     /* Borders & Shadows */
+     --border: rgba(90, 200, 255, 0.35);
+     --border-strong: rgba(255, 255, 255, 0.16);
+   
+     --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+     --shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.28);
+   
+     /* Layout */
+     --container: 1100px;
+     --gutter: clamp(16px, 5vw, 44px);
+   
+     /* Navbar */
+     --floating-nav-offset: 96px;
+     --nav-h: 56px;
+     --nav-max: 1120px;
+   
+     --nav-bg: rgba(0, 0, 0, 0.55);
+     --nav-border: rgba(90, 200, 255, 0.35);
+     --nav-shadow: 0 18px 55px rgba(0, 0, 0, 0.35);
+   
+     --nav-text: rgba(255, 255, 255, 0.92);
+     --nav-muted: rgba(255, 255, 255, 0.75);
 
-/* ==========================================================================
-   2) TOKENS / VARIABLER
-   ========================================================================== */
-
-:root{
-  --bg: #0b0f17;
-
-  --surface: rgba(255,255,255,0.04);
-  --surface-2: rgba(255,255,255,0.025);
-
-  --text: rgba(255,255,255,0.92);
-  --muted: rgba(255,255,255,0.62);
-  --font: 'Manrope', system-ui, sans-serif;
-
-  --accent: rgba(90, 200, 255, 0.95);
-  --accent-2: rgba(85, 110, 255, 0.85);
-  --accent-3: rgba(150, 80, 255, 0.75);
-  --accent-glow:rgba(255, 90, 200, 0.75);
-
-  --gradient: linear-gradient(    135deg,
-  rgba(90, 200, 255, 0.95),
-  rgba(85, 110, 255, 0.85),
-  rgba(150, 80, 255, 0.75),
-  rgba(255, 90, 200, 0.75));
-
-  --border: rgba(255,255,255,0.10);
-  --border-strong: rgba(255,255,255,0.16);
-
-  --shadow: 0 18px 50px rgba(0,0,0,0.45);
-  --shadow-soft: 0 10px 28px rgba(0,0,0,0.28);
-
-  --ring: 0 0 0 4px rgba(36,198,220,0.22);
-
-  --container: 980px;
-  --gutter: clamp(16px, 5vw, 44px);
-
-
-    /* Navbar */
-    --floating-nav-offset: 96px; 
-  
-    --nav-h: 56px;
-    --nav-max: 1120px;
-  
-    --nav-bg: rgba(0,0,0,0.55);
-    --nav-border: rgba(255,255,255,0.14);
-    --nav-shadow: 0 18px 55px rgba(0,0,0,0.35);
-  
-    --nav-text: rgba(255,255,255,0.92);
-    --nav-muted: rgba(255,255,255,0.75);
-
-
-    /* Scroll */
-  --scroll-track: rgba(255,255,255,0.06);
-  --scroll-thumb: rgba(255,255,255,0.18);
-  --scroll-thumb-hover: rgba(36,198,220,0.45);
-
-    /* Spacing scale */
-    --space-1: 0.25rem;  /* 4px */
-    --space-2: 0.5rem;   /* 8px */
-    --space-3: 0.75rem;  /* 12px */
-    --space-4: 1rem;     /* 16px */
-    --space-5: 1.5rem;   /* 24px */
-    --space-6: 2rem;     /* 32px */
-    --space-7: 3rem;     /* 48px */
-    --space-8: 4rem;     /* 64px */
-    --space-9: 6rem;     /* 96px */
-    --space-10: 8rem;    /* 128px */
-}
-
-
-html {
-  scroll-behavior: smooth;
-}
-
-html, body {
-  height: 100%;
-  background: var(--bg);
+    --shadow-blue-tight: 0 0 0 1.5px rgba(90, 200, 255, 0.45);
+    --shadow-blue-soft:  0 14px 40px rgba(90, 200, 255, 0.22);
+    --shadow-blue-ambient: 0 4px 14px rgba(90, 200, 255, 0.18);
+    
+   
+     /* Scrollbar */
+     --scroll-track: rgba(255, 255, 255, 0.06);
+     --scroll-thumb: rgba(255, 255, 255, 0.18);
+     --scroll-thumb-hover: rgba(90, 200, 255, 0.45);
+   
+     /* Spacing scale */
+     --space-1: 0.25rem;  /* 4px */
+     --space-2: 0.5rem;   /* 8px */
+     --space-3: 0.75rem;  /* 12px */
+     --space-4: 1rem;     /* 16px */
+     --space-5: 1.5rem;   /* 24px */
+     --space-6: 2rem;     /* 32px */
+     --space-7: 3rem;     /* 48px */
+     --space-8: 4rem;     /* 64px */
+     --space-9: 6rem;     /* 96px */
+     --space-10: 8rem;    /* 128px */
+   }
+   
+   /* ==========================================================================
+      3) BASE
+      ========================================================================== */
+   html {
+     scroll-behavior: smooth;
+   }
+   
+   html,
+   body {
+     height: 100%;
+   }
+   
+   body {
+     background: var(--bg);
+     color: var(--text);
+     font-family: var(--font);
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+     -webkit-overflow-scrolling: touch;
+   }
+   
+   /* Optional: länkar (subtilt blå identitet) */
+   a {
+     color: inherit;
+     text-decoration: none;
+   }
+   
+   /* ==========================================================================
+      4) BACKGROUND (Stjärnhimmel)
+      ========================================================================== */
+   .wrapper {
+     position: relative;
+     min-height: 100vh;
+     z-index: 0;
+   }
+   
+   .wrapper::before {
+     content: "";
+     position: fixed;
+     inset: 0;
+     pointer-events: none;
+     z-index: -1;
+   
+     background-image:
+       radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,.55) 99%, transparent 100%),
+       radial-gradient(1px 1px at 30% 80%, rgba(255,255,255,.35) 99%, transparent 100%),
+       radial-gradient(1px 1px at 70% 30%, rgba(255,255,255,.45) 99%, transparent 100%),
+       radial-gradient(1px 1px at 90% 60%, rgba(255,255,255,.30) 99%, transparent 100%),
+   
+       radial-gradient(1.5px 1.5px at 15% 65%, rgba(255,255,255,.18) 99%, transparent 100%),
+       radial-gradient(1.5px 1.5px at 55% 15%, rgba(255,255,255,.16) 99%, transparent 100%),
+       radial-gradient(1.5px 1.5px at 85% 85%, rgba(255,255,255,.14) 99%, transparent 100%),
+   
+       radial-gradient(2px 2px at 40% 40%, rgba(255,255,255,.10) 99%, transparent 100%),
+       radial-gradient(2px 2px at 75% 75%, rgba(255,255,255,.08) 99%, transparent 100%);
+   
+     background-size:
+       260px 260px,
+       280px 280px,
+       300px 300px,
+       320px 320px,
+   
+       420px 420px,
+       460px 460px,
+       520px 520px,
+   
+       700px 700px,
+       760px 760px;
+   
+     opacity: 0.75;
+     filter: blur(0.2px);
+   }
+   
+   /* ==========================================================================
+      5) LAYOUT / UTILITIES
+      ========================================================================== */
+   .container {
+     width: min(var(--container), calc(100% - (var(--gutter) * 2)));
+     margin-inline: auto;
+   }
+   
+   .section {
+     padding-block: var(--space-8);
+     margin-top: var(--space-8);
+     margin-bottom: var(--space-9);
+   }
+   
+   .section--sm {
+     padding-block: var(--space-6);
+     margin-bottom: var(--space-6);
+   }
+   
+   .stack > * + * {
+     margin-top: var(--space-4);
+   }
+   
+   .grid {
+     display: grid;
+     gap: var(--space-5);
+   }
+   
+   .grid--2 {
+     grid-template-columns: repeat(2, minmax(0, 1fr));
+   }
+   
+   .grid--3 {
+     grid-template-columns: repeat(3, minmax(0, 1fr));
+   }
+   
+   @media (max-width: 900px) {
+     .grid--2,
+     .grid--3 {
+       grid-template-columns: 1fr;
+     }
+   }
+   
+   /* Anchors (så fixed/floating nav inte täcker rubriker) */
+   section[id] {
+     scroll-margin-top: var(--floating-nav-offset);
+   }
+   
+   /* ==========================================================================
+      6) FORMS / FOCUS
+      ========================================================================== */
+   :where(a, button, input, textarea, select):focus-visible {
+     outline: none;
+     box-shadow: 0 0 0 3px var(--brand-glow);
+   }
+   
+   /* ==========================================================================
+      7) COMPONENTS — BUTTONS
+      ========================================================================== */
+   .btn {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate; /* ser till att pseudo-elementet inte “läcker” */
+     gap: var(--space-2);
+   
+     padding: 0.6rem 1.2rem;
+     border-radius: 12px;
+   
+     font: inherit;
+     font-weight: 600;
+     letter-spacing: 0.02em;
+   
+     cursor: pointer;
+     user-select: none;
+     -webkit-font-smoothing: antialiased;
+   
+     transition:
+       background 0.2s ease,
+       color 0.2s ease,
+       border-color 0.2s ease,
+       box-shadow 0.2s ease,
+       transform 0.15s ease;
+   }
+   
+   /* =========================================
+   SECONDARY (grå/outline) -> fylls blå på hover
+   ========================================= */
+.btn--secondary{
+  background: transparent;
   color: var(--text);
-  font-family: var(--font);
-}
-
-/* ===== Stjärnhimmel bakgrund ===== */
-.wrapper {
-  position: relative;
-  min-height: 100vh;
-  z-index: 0;
-}
-
-.wrapper::before{
-  content:"";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-
-
-  background-image:
-    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,.55) 99%, transparent 100%),
-    radial-gradient(1px 1px at 30% 80%, rgba(255,255,255,.35) 99%, transparent 100%),
-    radial-gradient(1px 1px at 70% 30%, rgba(255,255,255,.45) 99%, transparent 100%),
-    radial-gradient(1px 1px at 90% 60%, rgba(255,255,255,.30) 99%, transparent 100%),
-
-    radial-gradient(1.5px 1.5px at 15% 65%, rgba(255,255,255,.18) 99%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 55% 15%, rgba(255,255,255,.16) 99%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 85% 85%, rgba(255,255,255,.14) 99%, transparent 100%),
-
-    radial-gradient(2px 2px at 40% 40%, rgba(255,255,255,.10) 99%, transparent 100%),
-    radial-gradient(2px 2px at 75% 75%, rgba(255,255,255,.08) 99%, transparent 100%);
-
-
-  background-size:
-    260px 260px,
-    280px 280px,
-    300px 300px,
-    320px 320px,
-
-    420px 420px,
-    460px 460px,
-    520px 520px,
-
-    700px 700px,
-    760px 760px;
-
-  opacity: .75;
-  filter: blur(.2px);
-}
-
-
-/* ===== Layout / spacing grund ===== */
-
-.container {
-  width: min(var(--container), 92%);
-  margin-inline: auto;
-}
-
-.section {
-  padding-block: var(--space-8);
-  margin-top: var(--space-8);
-  margin-bottom: var(--space-9);
-}
-
-.section--sm {
-  padding-block: var(--space-6);
-  margin-bottom: var(--space-6);
-}
-
-.stack > * + * {
-  margin-top: var(--space-4);
-}
-
-.grid {
-  display: grid;
-  gap: var(--space-5);
-}
-
-
-.grid--2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-.grid--3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-section[id] {
-  scroll-margin-top: var(--floating-nav-offset);
-}
-
-
-@media (max-width: 900px) {
-  .grid--2,
-  .grid--3 {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-
-/* ===== Button  ===== */
-.btn {
-  --bg: #000;
-  --glow: rgba(85, 110, 255, 0.85);
-  --glow-strong: rgba(85, 110, 255, 0.85);
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-
-  padding: 0.45rem 1.1rem;
-  border-radius: 12px;
-  border: 2px solid transparent;
-
-  background:
-    linear-gradient(#000, #000) padding-box,
-    var(--gradient) border-box;
-
-  color: var(--text);
-  font: inherit;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  
-  cursor: pointer;
-  -webkit-font-smoothing: antialiased;
-  touch-action: manipulation;
-
-  box-shadow:
-  inset 0 1px 0 rgba(255, 255, 255, 0.06),
-  0 0 0 rgba(0, 0, 0, 0);
-
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background-position 0.3s ease;
-}
-
-
-
-/* optional variant */
-.btn--primary {
-  background-size: 200% auto;
-  background-position: left center;
-}
-
-.btn--primary:hover {
-  background-position: right center;
-  transform: translateY(-1px);
-  box-shadow:
-  inset 0 1px 0 rgba(255, 255, 255, 0.08),
-  0 12px 30px var(--glow);
-
-  background:
-  var(--gradient) padding-box,
-  var(--gradient) border-box;
-
-  color: #000;
-}
-
-.btn--primary:active {
-  transform: translateY(0);
-  box-shadow:
-  inset 0 2px 4px rgba(0, 0, 0, 0.35),
-  0 6px 18px var(--glow);
-}
-
-.btn--sm:hover {
-  background-position: right center;
-  transform: translateY(-1px);
-  box-shadow:
-  inset 0 1px 0 rgba(255, 255, 255, 0.08),
-  0 12px 30px var(--glow);
-
-  background:
-  var(--gradient) padding-box,
-  var(--gradient) border-box;
-
-  color: #000;
-}
-
-/* Focus (accessibility) */
-.btn:focus-visible {
-  outline: none;
-  box-shadow:
-    0 0 0 3px var(--glow-strong),
-    0 0 0 6px rgba(0, 0, 0, 0.8);
-}
-
-/* Size modifiers */
-.btn--sm {
-  padding: 0.60rem 0.9rem;
-  font-size: 1rem;
-}
-
-.btn--lg {
-  padding: 0.85rem 2.5rem;
-  font-size: 1.2rem;
-}
-
-/* Disabled */
-.btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none;
+  border-color: rgba(90, 200, 255, 0.35);
   box-shadow: none;
 }
 
-/* ===== Scrollbar ===== */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+/* Fyllningen som “sveper” från vänster */
+.btn--secondary::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  /* blå fyllning */
+  background: linear-gradient(
+    135deg,
+    rgba(90, 200, 255, 0.95),
+    rgba(85, 110, 255, 0.9)
+  );
+
+  /* start: helt borta till vänster */
+  transform: translateX(-101%);
+  transition: transform 420ms cubic-bezier(.2,.8,.2,1);
 }
 
-::-webkit-scrollbar {
-  width: 10px;
+/* Hover: fyll från vänster -> höger, text blir svart */
+.btn--secondary:hover{
+  color: #000;
+  border-color: transparent;
+  transform: translateY(-1px);
 }
 
-::-webkit-scrollbar-track {
-  background: var(--scroll-track);
+.btn--secondary:hover::before{
+  transform: translateX(0);
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--scroll-thumb);
-  border-radius: 999px;
-  border: 2px solid var(--scroll-track);
+/* Active */
+.btn--secondary:active{
+  transform: translateY(0);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--scroll-thumb-hover);
+/* =========================================
+   PRIMARY (blå) -> blir grå/outline på hover + blå glow runt hela
+   ========================================= */
+.btn--primary{
+  background: linear-gradient(
+    135deg,
+    rgba(90, 200, 255, 0.95),
+    rgba(85, 110, 255, 0.9)
+  );
+  color: #000;
+  box-shadow: 0 10px 30px rgba(85, 110, 255, 0.35);
 }
 
-body {
-  -webkit-overflow-scrolling: touch;
+.btn--primary:hover{
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  border-color: rgba(90, 200, 255, 0.35);
+  transform: translateY(-1px);
+
+  box-shadow:
+    var(--shadow-blue-tight),
+    var(--shadow-blue-ambient),
+    var(--shadow-blue-soft);
 }
+
+.btn--primary:active{
+  transform: translateY(0);
+  box-shadow:
+    0 0 0 2px rgba(90, 200, 255, 0.28),
+    0 10px 26px rgba(90, 200, 255, 0.22);
+}
+
+   
+   /* Sizes */
+   .btn--sm {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.95rem;
+  }
+  
+  .btn--lg {
+    padding: 0.85rem 2.3rem;
+    font-size: 1.2rem;
+  }
+
+   
+   /* ==========================================================================
+      8) SCROLLBAR
+      ========================================================================== */
+   * {
+     scrollbar-width: thin;
+     scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+   }
+   
+   ::-webkit-scrollbar {
+     width: 10px;
+   }
+   
+   ::-webkit-scrollbar-track {
+     background: var(--scroll-track);
+   }
+   
+   ::-webkit-scrollbar-thumb {
+     background: var(--scroll-thumb);
+     border-radius: 999px;
+     border: 2px solid var(--scroll-track);
+   }
+   
+   ::-webkit-scrollbar-thumb:hover {
+     background: var(--scroll-thumb-hover);
+   }
+   
