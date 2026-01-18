@@ -98,22 +98,10 @@
   justify-items: end;
   align-items: center;
 }
+
 .hero-tilt{
   width: clamp(240px, 28vw, 420px);
   aspect-ratio: 1 / 1;
-
-  /* 3D */
-  perspective: 900px;
-  transform-style: preserve-3d;
-
-  /* Tilt på hela paketet */
-  transform:
-    rotateX(var(--rx, 0deg))
-    rotateY(var(--ry, 0deg))
-    translateZ(0);
-
-  transition: transform var(--t, 240ms) cubic-bezier(.2,.8,.2,1);
-  will-change: transform;
 }
 
 /* Ringen följer med eftersom den är inuti hero-tilt */
@@ -135,9 +123,6 @@
   border-radius: 50%;
   overflow: hidden;
   display: block;
-
-  /* lite djup */
-  transform: translateZ(18px);
 }
 
 .hero-image img{
@@ -147,28 +132,6 @@
   border-radius: 50%;
   transform: scale(1.02);
 }
-
-/* Shine som följer musen */
-.hero-shine{
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-
-  background: radial-gradient(
-    220px 220px at var(--mx, 50%) var(--my, 50%),
-    rgba(90, 200, 255, 0.18),
-    transparent 60%
-  );
-
-  opacity: 0;
-  transition: opacity 200ms ease;
-}
-
-.hero-tilt:hover .hero-shine{
-  opacity: 1;
-}
-
 
 
 /* Responsive */
