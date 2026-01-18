@@ -104,10 +104,16 @@ section {
 }
 
 
-.nav-link:hover{
-  background: rgba(255,255,255,0.06);
-  color: var(--nav-text);
+.nav-link:hover {
+  background: linear-gradient(
+    135deg,
+    var(--brand),
+    var(--brand-2)
+  );
+  color: white;
 }
+
+
 
 .nav-burger-menu{
   display: none;
