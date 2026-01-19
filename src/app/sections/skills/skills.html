@@ -1,5 +1,5 @@
 
-<section class="skills-section section" id="skills">
+<section appScrollSection #sec="scrollSection" class="skills-section section" id="skills">
   <div class="skills-container">
     <header class="heading">
       <p class="eyebrow">A quick overview of what I am comfortable with and use in projects</p>
@@ -117,4 +117,6 @@
       </div>
     </div>
   </div>
+
+  <button (click)="sec.next()">Nästa</button>
 </section>

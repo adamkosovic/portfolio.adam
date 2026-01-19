@@ -1,4 +1,4 @@
-<section class="experiance-section section" id="experience">
+<section appScrollSection #sec="scrollSection" class="experiance-section section" id="experience">
   <div class="experiance-container">
     <header class="heading">
       <p class="eyebrow">Some of my Coding</p>
@@ -23,4 +23,6 @@
       </li>
     </ul>
   </div>
+
+  <button (click)="sec.next()">Nästa sektion</button>
 </section>

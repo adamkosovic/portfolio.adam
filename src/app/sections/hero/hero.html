@@ -1,4 +1,4 @@
-<section class="hero-container section" @fadeSlideUp id="hero">
+<section appScrollSection #sec="scrollSection" class="hero-container section" id="hero">
   <div class="container hero-inner">
     <div class="hero-left stack">
       <h3>Hi, I'm</h3>
@@ -37,4 +37,6 @@
       </div>
     </div>
   </div>
+
+  <button (click)="sec.next()">Nästa sektion</button>
 </section>

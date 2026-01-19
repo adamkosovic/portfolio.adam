@@ -1,4 +1,4 @@
-<section class="project-section section" id="projects">
+<section appScrollSection #sec="scrollSection" class="project-section section" id="projects">
   <div class="project-container">
     <header class="heading">
       <p class="eyebrow">Projects</p>
@@ -17,4 +17,6 @@
       </div>
     </div>
   </div>
+
+  <button (click)="sec.next()">Next Section</button>
 </section>

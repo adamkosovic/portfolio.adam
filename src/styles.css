@@ -12,7 +12,7 @@
      padding: 0;
      box-sizing: border-box;
    }
-   
+
    /* ==========================================================================
       2) TOKENS / VARIABLER
       ========================================================================== */
@@ -100,7 +100,7 @@
       3) BASE
       ========================================================================== */
    html {
-     scroll-behavior: smooth;
+     scroll-behavior: auto;
    }
    
    html,
@@ -115,8 +115,7 @@
      -webkit-font-smoothing: antialiased;
      -moz-osx-font-smoothing: grayscale;
      -webkit-overflow-scrolling: touch;
-   }
-   
+   }   
    /* Optional: länkar (subtilt blå identitet) */
    a {
      color: inherit;
@@ -178,6 +177,8 @@
    }
    
    .section {
+     min-height: 100vh;
+
      padding-block: var(--space-8);
      margin-top: var(--space-8);
      margin-bottom: var(--space-9);

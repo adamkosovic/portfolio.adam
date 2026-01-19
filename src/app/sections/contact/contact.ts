@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { ScrollSectionDirective } from '../../directive/scroll-section';
 
 @Component({
   selector: 'app-contact',
-  imports: [],
+  standalone: true,
+  imports: [ScrollSectionDirective],
   templateUrl: './contact.html',
   styleUrl: './contact.css',
 })
