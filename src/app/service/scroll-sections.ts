@@ -36,6 +36,17 @@ export class ScrollSectionsService {
     this.smoothScrollTo(targetY, 1000);
   }
 
+  scrollToId(id: string, duration = 1000) {
+    const el = document.getElementById(id);
+    if (!el) return;
+  
+    const NAV_OFFSET = 96;
+    const targetY = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
+  
+    this.smoothScrollTo(targetY, duration);
+  }
+  
+
   // =========================
   // SMOOTH SCROLL (CUSTOM)
   // =========================
