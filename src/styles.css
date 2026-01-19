@@ -12,50 +12,66 @@
      padding: 0;
      box-sizing: border-box;
    }
-
+   
    /* ==========================================================================
-      2) TOKENS / VARIABLER
+      2) TOKENS / VARIABLER  (Brand-first: #2f4dff, modern tech blue)
       ========================================================================== */
    :root {
      /* Canvas */
-     --bg: #0b1020; 
+     --bg: #0b1020;
    
      /* Surfaces */
      --surface: rgba(255, 255, 255, 0.045);
-     --surface-2: rgba(255, 255, 255, 0.025);
+     --surface-2: rgba(255, 255, 255, 0.028);
+     /* brand tint on surfaces */
+     --surface-brand: rgba(47, 77, 255, 0.06);
    
      /* Text */
      --text: rgba(255, 255, 255, 0.92);
      --text-soft: rgba(255, 255, 255, 0.72);
-     --muted: rgba(255, 255, 255, 0.62);
+     --muted: rgba(255, 255, 255, 0.60);
    
      /* Typography */
      --font: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
    
-     /* Brand (tydlig blå identitet) */
-     --brand: #5ac8ff;
-     --brand-2: #556eff;
-     --brand-glow: rgba(90, 200, 255, 0.35);
+     /* ✅ Brand (modern tech blue) */
+     --brand: #2f4dff;
    
-     /* Accent (mappas till brand för konsekvens) */
+     /* Support tones (same family) */
+     --brand-700: #2237d8; /* deeper */
+     --brand-600: #263fe6;
+     --brand-500: #3c5bff; /* mid */
+     --brand-400: #5a75ff; /* highlight */
+   
+     /* Brand transparencies (calmer glow) */
+     --brand-200: rgba(47, 77, 255, 0.18);
+     --brand-150: rgba(47, 77, 255, 0.12);
+     --brand-100: rgba(47, 77, 255, 0.08);
+   
+     /* Accent mapping */
      --accent: var(--brand);
-     --accent-2: var(--brand-2);
-     --accent-3: rgba(150, 80, 255, 0.75);
+     --accent-soft: var(--brand-200);
    
-     /* Gradient (mer blådominerad) */
+     /* Gradient (tech: blue -> lighter blue, no purple) */
      --gradient: linear-gradient(
        135deg,
-       rgba(90, 200, 255, 0.95),
-       rgba(85, 110, 255, 0.92),
-       rgba(120, 110, 255, 0.75)
+       rgba(47, 77, 255, 0.95),
+       rgba(90, 120, 255, 0.85),
+       rgba(47, 77, 255, 0.55)
      );
    
      /* Borders & Shadows */
-     --border: rgba(90, 200, 255, 0.35);
-     --border-strong: rgba(255, 255, 255, 0.16);
+     --border: rgba(255, 255, 255, 0.10);
+     --border-strong: rgba(47, 77, 255, 0.30);
    
      --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
-     --shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.28);
+     --shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.30);
+   
+     /* Focus / glow */
+     --focus-ring: 0 0 0 2px rgba(47, 77, 255, 0.22);
+     --shadow-brand-tight: 0 0 0 1.5px rgba(47, 77, 255, 0.20);
+     --shadow-brand-ambient: 0 6px 18px rgba(47, 77, 255, 0.16);
+     --shadow-brand-soft: 0 12px 32px rgba(47, 77, 255, 0.14);
    
      /* Layout */
      --container: 1100px;
@@ -66,22 +82,17 @@
      --nav-h: 56px;
      --nav-max: 1120px;
    
-     --nav-bg: rgba(0, 0, 0, 0.55);
-     --nav-border: rgba(90, 200, 255, 0.35);
-     --nav-shadow: 0 18px 55px rgba(0, 0, 0, 0.35);
+     --nav-bg: rgba(9, 12, 24, 0.62);
+     --nav-border: rgba(47, 77, 255, 0.26);
+     --nav-shadow: 0 16px 50px rgba(0, 0, 0, 0.45);
    
      --nav-text: rgba(255, 255, 255, 0.92);
      --nav-muted: rgba(255, 255, 255, 0.75);
-
-    --shadow-blue-tight: 0 0 0 1.5px rgba(90, 200, 255, 0.45);
-    --shadow-blue-soft:  0 14px 40px rgba(90, 200, 255, 0.22);
-    --shadow-blue-ambient: 0 4px 14px rgba(90, 200, 255, 0.18);
-    
    
      /* Scrollbar */
      --scroll-track: rgba(255, 255, 255, 0.06);
      --scroll-thumb: rgba(255, 255, 255, 0.18);
-     --scroll-thumb-hover: rgba(90, 200, 255, 0.45);
+     --scroll-thumb-hover: rgba(47, 77, 255, 0.50);
    
      /* Spacing scale */
      --space-1: 0.25rem;  /* 4px */
@@ -115,8 +126,9 @@
      -webkit-font-smoothing: antialiased;
      -moz-osx-font-smoothing: grayscale;
      -webkit-overflow-scrolling: touch;
-   }   
-   /* Optional: länkar (subtilt blå identitet) */
+   }
+   
+   /* Links */
    a {
      color: inherit;
      text-decoration: none;
@@ -164,7 +176,7 @@
        700px 700px,
        760px 760px;
    
-     opacity: 0.75;
+     opacity: 0.60;
      filter: blur(0.2px);
    }
    
@@ -178,7 +190,6 @@
    
    .section {
      min-height: 100vh;
-
      padding-block: var(--space-8);
      margin-top: var(--space-8);
      margin-bottom: var(--space-9);
@@ -223,16 +234,20 @@
       ========================================================================== */
    :where(a, button, input, textarea, select):focus-visible {
      outline: none;
-     box-shadow: 0 0 0 3px var(--brand-glow);
+     box-shadow: var(--focus-ring);
    }
    
    /* ==========================================================================
       7) COMPONENTS — BUTTONS
       ========================================================================== */
    .btn {
-    position: relative;
-    overflow: hidden;
-    isolation: isolate; /* ser till att pseudo-elementet inte “läcker” */
+     position: relative;
+     overflow: hidden;
+     isolation: isolate;
+   
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
      gap: var(--space-2);
    
      padding: 0.6rem 1.2rem;
@@ -243,8 +258,9 @@
      letter-spacing: 0.02em;
    
      cursor: pointer;
-     user-select: none;
      -webkit-font-smoothing: antialiased;
+   
+     border: 1px solid transparent;
    
      transition:
        background 0.2s ease,
@@ -254,95 +270,76 @@
        transform 0.15s ease;
    }
    
-   /* =========================================
-   SECONDARY (grå/outline) -> fylls blå på hover
-   ========================================= */
-.btn--secondary{
-  background: transparent;
-  color: var(--text);
-  border-color: rgba(90, 200, 255, 0.35);
-  box-shadow: none;
-}
-
-/* Fyllningen som “sveper” från vänster */
-.btn--secondary::before{
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-
-  /* blå fyllning */
-  background: linear-gradient(
-    135deg,
-    rgba(90, 200, 255, 0.95),
-    rgba(85, 110, 255, 0.9)
-  );
-
-  /* start: helt borta till vänster */
-  transform: translateX(-101%);
-  transition: transform 420ms cubic-bezier(.2,.8,.2,1);
-}
-
-/* Hover: fyll från vänster -> höger, text blir svart */
-.btn--secondary:hover{
-  color: #000;
-  border-color: transparent;
-  transform: translateY(-1px);
-}
-
-.btn--secondary:hover::before{
-  transform: translateX(0);
-}
-
-/* Active */
-.btn--secondary:active{
-  transform: translateY(0);
-}
-
-/* =========================================
-   PRIMARY (blå) -> blir grå/outline på hover + blå glow runt hela
-   ========================================= */
-.btn--primary{
-  background: linear-gradient(
-    135deg,
-    rgba(90, 200, 255, 0.95),
-    rgba(85, 110, 255, 0.9)
-  );
-  color: #000;
-  box-shadow: 0 10px 30px rgba(85, 110, 255, 0.35);
-}
-
-.btn--primary:hover{
-  background: transparent;
-  color: var(--text);
-  border-color: rgba(90, 200, 255, 0.35);
-  transform: translateY(-1px);
-
-  box-shadow:
-    var(--shadow-blue-tight),
-    var(--shadow-blue-ambient),
-    var(--shadow-blue-soft);
-}
-
-.btn--primary:active{
-  transform: translateY(0);
-  box-shadow:
-    0 0 0 2px rgba(90, 200, 255, 0.28),
-    0 10px 26px rgba(90, 200, 255, 0.22);
-}
-
+   /* SECONDARY (outline) -> fylls brand på hover */
+   .btn--secondary {
+     background: transparent;
+     color: var(--text);
+     border-color: var(--border-strong);
+     box-shadow: none;
+   }
+   
+   .btn--secondary::before {
+     content: '';
+     position: absolute;
+     inset: 0;
+     z-index: -1;
+     background: var(--gradient);
+   
+     transform: translateX(-101%);
+     transition: transform 420ms cubic-bezier(.2,.8,.2,1);
+   }
+   
+   .btn--secondary:hover {
+     color: #0b1020;
+     border-color: transparent;
+     transform: translateY(-1px);
+   }
+   
+   .btn--secondary:hover::before {
+     transform: translateX(0);
+   }
+   
+   .btn--secondary:active {
+     transform: translateY(0);
+   }
+   
+   /* PRIMARY (brand) -> transparent + brand glow på hover */
+   .btn--primary {
+     background: var(--gradient);
+     color: #0b1020;
+     border-color: rgba(255,255,255,0.08);
+     box-shadow: 0 12px 30px rgba(47,77,255,0.26);
+   }
+   
+   .btn--primary:hover {
+     background: transparent;
+     color: var(--text);
+     border-color: var(--border-strong);
+     transform: translateY(-1px);
+   
+     box-shadow:
+       var(--shadow-brand-tight),
+       var(--shadow-brand-ambient),
+       var(--shadow-brand-soft);
+   }
+   
+   .btn--primary:active {
+     transform: translateY(0);
+     box-shadow:
+       0 0 0 2px rgba(47,77,255,0.20),
+       0 12px 30px rgba(47,77,255,0.16);
+   }
    
    /* Sizes */
    .btn--sm {
-    padding: 0.5rem 0.9rem;
-    font-size: 0.95rem;
-  }
-  
-  .btn--lg {
-    padding: 0.9rem 2rem;
-    font-size: 1.2rem;
-  }
-
+     padding: 0.5rem 0.9rem;
+     font-size: 0.95rem;
+   }
+   
+   .btn--lg {
+     padding: 0.9rem 2rem;
+     font-size: 1.2rem;
+   }
    
    /* ==========================================================================
       8) SCROLLBAR

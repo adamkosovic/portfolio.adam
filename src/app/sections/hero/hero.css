@@ -73,7 +73,6 @@
 .btn i {
   font-size: 20px;
   color: black;
-  transition: color 0.2s ease;
 }
 
 .btn:hover i {
