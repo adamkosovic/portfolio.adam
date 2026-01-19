@@ -133,6 +133,19 @@
   transform: scale(1.02);
 }
 
+.nextsec-btn {
+  position: absolute;
+  bottom: 15rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-accent);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
 
 /* Responsive */
 @media (max-width: 900px) {
