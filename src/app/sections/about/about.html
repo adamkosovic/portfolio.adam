@@ -8,45 +8,42 @@
       <div class="profile-tabs">
         <app-profile-tabs></app-profile-tabs>
       </div>
-      <div>
-        <div class="traits-block" aria-labelledby="traits-title">
-          <h3>What I bring to a team</h3>
-        </div>
-        <ul class="traits" role="list">
-          <li>
-            <button type="button" class="trait" aria-pressed="false">
-              <div class="traits-div">
-                <span><img src="assets/icons/brain.svg" alt="BrainIcon" class="trait-img" /></span>
-                <strong>Problem solver</strong>
-              </div>
-              <span>Loves breaking down complex issues</span>
-            </button>
-          </li>
-          <li>
-            <button type="button" class="trait" aria-pressed="false">
-              <div class="traits-div">
-                <span><img src="assets/icons/code.svg" alt="codeIcon" class="trait-img" /></span>
-                <strong>Performace-mined</strong>
-              </div>
-              <span>Cares about speed, efficiency, and scalability</span>
-            </button>
-          </li>
+      <div class="traits-block" aria-labelledby="traits-title">
+        <h3 id="traits-title">What I bring to a team</h3>
 
-          <li>
-            <button type="button" class="trait" aria-pressed="false">
-              <div class="traits-div">
-                <span
-                  ><img src="assets/icons/users-three.svg" alt="usersIcon" class="trait-img"
-                /></span>
-                <strong>Team Player</strong>
-              </div>
-              <span>Enjoys collaborating and sharing knowledge</span>
-            </button>
+        <ul class="traits" role="list">
+          <li class="trait-card">
+            <div class="trait-head">
+              <img src="assets/icons/brain.svg" alt="" aria-hidden="true" class="trait-icon" />
+              <h4 class="trait-title">Problem solver</h4>
+            </div>
+            <p class="trait-desc">I break down complex problems and ship practical solutions.</p>
+          </li>
+      
+          <li class="trait-card">
+            <div class="trait-head">
+              <img src="assets/icons/code.svg" alt="" aria-hidden="true" class="trait-icon" />
+              <h4 class="trait-title">Performance-minded</h4>
+            </div>
+            <p class="trait-desc">I care about speed, accessibility, and maintainable UI.</p>
+          </li>
+      
+          <li class="trait-card">
+            <div class="trait-head">
+              <img src="assets/icons/users-three.svg" alt="" aria-hidden="true" class="trait-icon" />
+              <h4 class="trait-title">Team player</h4>
+            </div>
+            <p class="trait-desc">I communicate clearly and enjoy collaborating and sharing knowledge.</p>
           </li>
         </ul>
       </div>
     </div>
   </div>
 
-  <button (click)="sec.next()">Nästa sektion</button>
+  <button 
+    (click)="sec.next()" 
+    title="next section button" class="nextsec-btn"
+  >
+    <img src="assets/icons/arrow-circle-down.svg" alt="arrow-circle-down"/>
+  </button>
 </section>

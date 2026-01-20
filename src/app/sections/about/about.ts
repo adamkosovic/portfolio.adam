@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Tech } from '../../shared/tech/tech';
 import { ProfileTabsComponent } from '../../shared/profile-tabs/profile-tabs';
 import { ScrollSectionDirective } from '../../directive/scroll-section';
@@ -11,5 +11,10 @@ import { ScrollSectionDirective } from '../../directive/scroll-section';
   styleUrl: './about.css',
 })
 export class About {
+  @ViewChild(ScrollSectionDirective)
+  private section!: ScrollSectionDirective;
 
+  next() {
+    this.section.next();
+  }
 }

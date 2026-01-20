@@ -32,8 +32,7 @@
      --muted: rgba(255, 255, 255, 0.60);
    
      /* Typography */
-     --font-heading: 'Space Grotesk', sans-serif;
-     --font-body: 'Manrope', system-ui, sans-serif;
+     --font: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
    
      /* ✅ Brand (modern tech blue) */
      --brand: #2f4dff;
@@ -112,7 +111,7 @@
       3) BASE
       ========================================================================== */
    html {
-     scroll-behavior: auto;
+     scroll-behavior: smooth;
    }
    
    html,
@@ -123,34 +122,11 @@
    body {
      background: var(--bg);
      color: var(--text);
-     font-family: var(--font-body);
+     font-family: var(--font);
      -webkit-font-smoothing: antialiased;
      -moz-osx-font-smoothing: grayscale;
      -webkit-overflow-scrolling: touch;
    }
-
-   h1, h2, h3, h4, h5, h6 {
-     font-family: var(--font-heading);
-     color: var(--text);
-     line-height: 1.2;
-     font-weight: 700;
-   }
-
-   body, 
-    p,
-    li,
-    input,
-    span,
-    button,
-    textarea {
-      font-family: var(--font-body);
-    }
-
-    .nav-link,
-    .btn {
-      font-family: var(--font-heading);
-    }
-
    
    /* Links */
    a {
@@ -213,19 +189,11 @@
    }
    
    .section {
+     min-height: 100vh;
      padding-block: var(--space-8);
      margin-top: var(--space-8);
      margin-bottom: var(--space-9);
    }
-
-    /* Anchor offset oavsett elementtyp */
-  [id] {
-    scroll-margin-top: var(--floating-nav-offset);
-  }
-
-   .section--page {
-    min-height: 100vh;
-  }
    
    .section--sm {
      padding-block: var(--space-6);
@@ -324,6 +292,7 @@
    .btn--secondary:hover {
      color: #0b1020;
      border-color: transparent;
+     transform: translateY(-1px);
    }
    
    .btn--secondary:hover::before {
@@ -339,6 +308,7 @@
      background: var(--gradient);
      color: #0b1020;
      border-color: rgba(255,255,255,0.08);
+     box-shadow: 0 12px 30px rgba(47,77,255,0.26);
    }
    
    .btn--primary:hover {
