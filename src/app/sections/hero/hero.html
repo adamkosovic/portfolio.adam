@@ -1,4 +1,4 @@
-<section appScrollSection #sec="scrollSection" class="hero-container section" id="hero">
+<section appScrollSection #sec="scrollSection" class="hero-container section section--page" id="hero">
   <div class="container hero-inner">
     <div class="hero-left stack">
       <h3>Hi, I'm</h3>
@@ -37,8 +37,11 @@
       </div>
     </div>
   </div>
-
-  <button (click)="sec.next()" title="next section button">
-    <img src="assets/icons/arrow-down.svg" alt="" class="nextsec-btn"/>
+  
+  <button 
+    (click)="sec.next()" 
+    title="next section button" class="nextsec-btn"
+  >
+    <img src="assets/icons/arrow-circle-down.svg" alt="arrow-circle-down"/>
   </button>
 </section>

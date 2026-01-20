@@ -147,7 +147,6 @@
   white-space: nowrap;
 
   font-size: 0.85rem;
-  font-family: var(--font-sans, system-ui, sans-serif);
   color: #f5f5f5;
 
   background: rgba(15, 15, 15, 0.95);
