@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { ProjectCardsComponent } from '../../shared/project-cards/project-cards';
 import { Project } from '../../model/project.model';
 import { ScrollSectionDirective } from '../../directive/scroll-section';
+import { NextsecBtn } from '../../shared/nextsec-btn/nextsec-btn';
 
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, ProjectCardsComponent, ScrollSectionDirective],
+  imports: [CommonModule, ProjectCardsComponent, ScrollSectionDirective, NextsecBtn],
   templateUrl: './projects.html',
   styleUrls: ['./projects.css'],
 })

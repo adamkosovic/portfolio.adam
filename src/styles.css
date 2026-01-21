@@ -111,7 +111,7 @@
       3) BASE
       ========================================================================== */
    html {
-     scroll-behavior: smooth;
+     scroll-behavior: auto;
    }
    
    html,

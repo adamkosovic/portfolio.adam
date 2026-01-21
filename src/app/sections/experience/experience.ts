@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { Experience } from '../../model/experience.model';
 import { ExperienceCardComponent } from '../../shared/experience-card/experience-card.component';
 import { ScrollSectionDirective } from '../../directive/scroll-section';
+import { NextsecBtn } from '../../shared/nextsec-btn/nextsec-btn';
 
 
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [CommonModule, ExperienceCardComponent, ScrollSectionDirective],
+  imports: [CommonModule, ExperienceCardComponent, ScrollSectionDirective, NextsecBtn],
   templateUrl: './experience.html',
   styleUrl: './experience.css',
 })
