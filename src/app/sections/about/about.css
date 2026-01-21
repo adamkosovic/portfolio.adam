@@ -3,6 +3,7 @@
 .about-section{
   position: relative;
   padding-block: clamp(3rem, 6vw, 5rem);
+  padding-bottom: 6rem; 
   scroll-margin-top: var(--floating-nav-offset);
 }
 
@@ -11,7 +12,10 @@
   z-index: 1;
   max-width: var(--container);
   margin: 0 auto;
+  padding-inline: var(--gutter);
 }
+
+/* ===== HEADING ===== */
 
 .heading{
   text-align: center;
@@ -25,7 +29,6 @@
   color: var(--muted);
   margin: 0 0 0.6rem 0;
 }
-
 
 .heading h2{
   font-size: clamp(2rem, 3.2vw, 2.7rem);
@@ -58,14 +61,14 @@
 /* ===== Profile-tabs ===== */
 
 .profile-tabs{
-  margin-top: 4rem;
+  margin-top: clamp(2rem, 5vw, 4rem);
 }
 
 /* ===== TRAITS ===== */
 
 .traits-block {
   position: relative;
-  margin-top: 1.5rem;
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
 }
 
 .traits-block h3 {
@@ -90,7 +93,7 @@
 .traits {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  gap: clamp(1rem, 2.5vw, 2rem);
 
   list-style: none;
   padding: 0;
@@ -100,6 +103,7 @@
 @media (max-width: 900px) {
   .traits { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
 @media (max-width: 560px) {
   .traits { grid-template-columns: 1fr; }
 }
@@ -138,7 +142,6 @@
     filter 180ms ease;
 }
 
-/* Subtil “brand edge” som syns på hover/focus */
 .trait::before {
   content: "";
   position: absolute;
@@ -166,14 +169,13 @@
   opacity: 1;
 }
 
-/* Focus (tillgänglighet) */
 .trait:focus-visible {
   outline: none;
   box-shadow: var(--shadow), var(--focus-ring);
   border-color: var(--border-strong);
 }
 
-/* Header-rad i card */
+
 .traits-div {
   display: flex;
   align-items: center;
@@ -191,6 +193,12 @@
   margin-bottom: 0.6rem;
 }
 
+.trait-img {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+}
+
 
 .trait h4 {
   font-size: 1.15rem;
@@ -198,7 +206,6 @@
   margin-bottom: 0.35rem;
   color: var(--text);
 }
-
 
 .trait h4::after {
   content: "";
@@ -210,10 +217,6 @@
   opacity: 0.6;
 }
 
-
-/* Description i card
-   Tips: ge gärna beskrivningen en klass i HTML: class="trait-desc"
-   Då slipper du att styla ikonens span. */
 .trait span {
   font-size: 1rem;
   font-weight: 400;
@@ -221,13 +224,12 @@
   line-height: 1.55;
 }
 
+/* ===== NEXT BUTTON (ABOUT) ===== */
 
-/* ===== NEXT SECTION BUTTON ===== */
-
-.nextsec-btn {
+.about-section .nextsec-btn {
   position: absolute;
   left: 50%;
-  bottom: 1rem;
+  bottom: 1.25rem; 
   transform: translateX(-50%);
 
   width: 42px;
@@ -240,14 +242,61 @@
   border: none;
 
   cursor: pointer;
-  transition: 
-    background 0.3s ease, 
-    opacity 0.3s ease;
+  opacity: 0.9;
+  z-index: 2;
+
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.nextsec-btn img {
+.about-section .nextsec-btn img {
   width: 100%;
   height: 100%;
-  opacity: 0.85;
-  filter: drop-shadow(0 0 12px rgba(90, 200, 255, 0.35));
+  opacity: 0.9;
+  filter: drop-shadow(0 0 12px rgba(47, 77, 255, 0.35));
+}
+
+.about-section .nextsec-btn:hover {
+  transform: translateX(-50%) translateY(6px);
+  opacity: 1;
+}
+
+/* ===== RESPONSIVE POLISH ===== */
+
+@media (max-width: 600px) {
+  .heading {
+    margin-bottom: 1.25rem;
+  }
+
+  .heading h2::after {
+    width: 64px;
+    margin-top: 0.75rem;
+  }
+
+  .trait {
+    padding: 1rem;
+    min-height: 0;
+  }
+
+  .trait h4 {
+    font-size: 1.05rem;
+  }
+
+  .trait span {
+    font-size: 0.95rem;
+  }
+
+  .trait-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .about-section .nextsec-btn {
+    bottom: 0.75rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .about-section .nextsec-btn {
+    bottom: 1.5rem;
+  }
 }
