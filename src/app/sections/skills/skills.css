@@ -111,7 +111,6 @@
 
   .skills__bars:hover,
   .skills__circles:hover{
-  transform: translateY(-2px);
   box-shadow: var(--shadow);
   transition: transform .2s ease, box-shadow .2s ease;
   }
@@ -122,6 +121,14 @@
   
   .bar{
     margin-bottom: 0.95rem;
+    padding: 0.35rem 0;
+    border-radius: 12px;
+    transition: transform 180ms ease, background 180ms ease;
+  }
+
+  .bar:hover{
+    background: rgba(255,255,255,0.03);
+    transform: translateY(-1px);
   }
   
   .bar:last-child{
@@ -192,10 +199,10 @@
   
     width: var(--size);
     height: var(--size);
-    margin: 0 auto;
-    border-radius: 50%;
+    border-radius: 999px;
     display: grid;
     place-items: center;
+    margin: 0 auto;
   
     background:
       conic-gradient(
@@ -204,8 +211,22 @@
       );
   
     position: relative;
+  
+    transition:
+      transform 220ms cubic-bezier(.2,.8,.2,1),
+      filter 220ms ease;
+  
     filter: drop-shadow(0 10px 24px rgba(0,0,0,0.35));
   }
+
+  .circle:hover{
+    transform: scale(1.06);
+    filter:
+      drop-shadow(0 14px 36px rgba(47,77,255,0.35))
+      drop-shadow(0 0 18px rgba(47,77,255,0.35));
+  }
+  
+  
   
   .circle::after{
     content: "";
@@ -214,6 +235,18 @@
     background: rgba(11,16,32,0.55);
     border: 1px solid rgba(255,255,255,0.10);
     border-radius: inherit;
+  }
+
+  .circle:hover .circle__num{
+    transform: scale(1.05);
+  }
+
+  .circles:hover .circle{
+    opacity: .75;
+  }
+  
+  .circles:hover .circle:hover{
+    opacity: 1;
   }
   
   .circle__inner{
@@ -225,6 +258,7 @@
   .circle__num{
     font-size: 1.25rem;
     font-weight: 800;
+    transition: transform 200ms ease;
   }
   
   .circle__label{
@@ -327,6 +361,14 @@
   
     .tech-toggle{
       width: 100%;
+    }
+  }
+  
+
+  @media (hover: none){
+    .circle:hover{
+      transform: none;
+      filter: drop-shadow(0 10px 24px rgba(0,0,0,0.35));
     }
   }
   
