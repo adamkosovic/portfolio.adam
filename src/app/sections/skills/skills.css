@@ -401,6 +401,12 @@
   }
 }
 
+@media (max-width: 700px) {
+  .tech-toggle {
+    display: none;
+  }
+}
+
 
 @media (max-width: 600px){
   .skills__bars,
@@ -451,9 +457,7 @@
     min-width: 0;
   }
 
-  .stack-head h3::after{
-    display: none;
-  }
+
 
   .tech-toggle{
     width: 38px;

@@ -1,7 +1,7 @@
 <div class="tech-root" [class.sm]="size === 'sm'">
   <div class="tech-marquee" [class.is-static]="!marquee">
     <ul class="tech-stack">
-      <li *ngFor="let t of tech" [attr.data-name]="t.name">
+      <li *ngFor="let t of tech" [attr.data-name]="t.name" tabindex="0">
         <i [class]="t.icon"></i>
       </li>
     </ul>
