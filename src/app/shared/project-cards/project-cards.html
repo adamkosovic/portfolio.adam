@@ -1,5 +1,5 @@
 <article class="card-wrap">
-  <div 
+  <div
     class="card rgb"
     #cardEl
     (mousemove)="tilt($event, cardEl)"
@@ -7,50 +7,47 @@
     [class.reverse]="reverse"
   >
     <div class="card-media">
-      <img 
+      <img
         class="card-image"
-        [src]="project.imageUrl" 
-        alt="project.imageAlt"
+        [src]="project.imageUrl"
+        [alt]="project.imageAlt"
         loading="lazy"
       />
     </div>
-  
+
     <div class="card-body">
       <h3 class="card-title">{{ project.title }}</h3>
-  
-      <ul class="card-tags" aria-label="Technologies used">
-        <li>
-          <app-tech [tags]="project.tags" [marquee]="false" size="sm"></app-tech>
-        </li>
-      </ul>
-  
-      <p class="card-desc">{{ project.description}}</p>
-  
+
+      <div class="card-tech" aria-label="Technologies used">
+        <app-tech [tags]="project.tags" [marquee]="false" size="sm"></app-tech>
+      </div>
+
+      <p class="card-desc">{{ project.description }}</p>
+
       <div class="card-actions">
-        <a 
-          href=""
+        <a
           class="btn btn--lg"
           [href]="project.repoUrl"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Open Github repository"
+          aria-label="Open GitHub repository"
         >
           <i class="bi bi-github"></i>
-          <span>Github repository</span>
+          <span>GitHub</span>
         </a>
-  
-        <a 
-          href="project.liveUrl" 
+
+        <a
           class="btn btn--lg btn--outline"
           [href]="project.liveUrl"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Open live preview"
         >
-        Live preview
+          <span>Live preview</span>
           <i class="bi bi-arrow-right"></i>
         </a>
       </div>
     </div>
   </div>
 </article>
+

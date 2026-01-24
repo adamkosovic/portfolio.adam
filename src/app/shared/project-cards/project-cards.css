@@ -1,255 +1,272 @@
-.card-wrap {
-  perspective: 1100px;
-  margin-bottom: 35px;
-  margin-top: 45px;
-}
+/* =========================
+   PROJECT CARD
+   ========================= */
 
-.card {
-  position: relative;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 360px 1fr;
-  gap: 24px;
-  padding: 16px 28px 16px 28px;
-  border-radius: 20px;
-  color: #fff;
-  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-  align-items: center;
-  min-width: 0;
-  cursor: pointer;
-  max-width: 800px;
-
-  transform-style: preserve-3d;
-  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
-  transition: transform 120ms ease, box-shadow 180ms ease;
-  will-change: transform;
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
-}
-
-.card:hover {
-  box-shadow: 0 18px 50px rgba(0,0,0,0.55);
-}
-
-
-.card-media { transform: translateZ(24px); }
-.card-body  { transform: translateZ(14px); }
-
-
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 20px;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 180ms ease;
-
-  background: radial-gradient(
-    600px circle at var(--mx, 50%) var(--my, 50%),
-    rgba(255,255,255,0.16),
-    rgba(255,255,255,0.06) 35%,
-    transparent 60%
-  );
-}
-
-.card:hover::before {
-  opacity: 1;
-}
-
-.card.reverse {
-  grid-template-columns: 1fr 360px;
-}
-
-.card.reverse .card-media { order: 2; }
-.card.reverse .card-body  { order: 1; }
-
-@media (max-width: 820px) {
-  .card.reverse {
-    grid-template-columns: 1fr;
+   .card-wrap{
+    perspective: 1100px;
+    margin: clamp(28px, 4vw, 46px) 0;
   }
-  .card.reverse .card-media,
-  .card.reverse .card-body {
-    order: unset;
+  
+  /* --- Card --- */
+  .card{
+    position: relative;
+    margin-inline: auto;
+  
+    display: grid;
+    grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+    gap: clamp(16px, 2.2vw, 24px);
+  
+    padding: clamp(16px, 2.4vw, 22px);
+    border-radius: 22px;
+  
+    color: var(--text);
+    background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.08);
+  
+    align-items: center;
+    min-width: 0;
+    max-width: 980px;
+  
+    transform-style: preserve-3d;
+    transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    transition: transform 140ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    will-change: transform;
+  
+    box-shadow: var(--shadow-soft);
   }
-}
-
-.project-item {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 0.6s ease forwards;
-}
-
-.project-item:nth-child(1) { animation-delay: 0.1s; }
-.project-item:nth-child(2) { animation-delay: 0.2s; }
-.project-item:nth-child(3) { animation-delay: 0.3s; }
-
-
-@keyframes rgb {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 0% 50%;}
-  100% {background-position: 0% 50%;}
-}
-
-.card-media {
-  overflow: hidden;
-  border-radius: 20px;
-  max-height: 220px;
-  height: auto;
-}
-
-.card-image {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  border-radius: 20px;
-
-  max-width: none;
-  max-height: none;
-}
-
-.card-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-height: 300px;
-}
-
-.card-title {
-  margin: 0 0 12px;
-  font-size: 24px;
-  font-weight: 500;
-}
-
-.card-tags {
-  list-style: none;
-}
-
-.tag {
-  border-radius: 999px;
-  text-transform: uppercase;
-}
-
-.card-desc {
-  margin: 0 0 18px;
-  font-size: 14px;
-  opacity: 0.85;
-  line-height: 1.8;
-}
-
-.card-actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.btn {
-  padding: 10px 18px;
-  border-radius: 999px;
-  font-size: 14px;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.btn.btn--outline {
-  border: none;
-  background: none;
-  box-shadow: none;
-  font-size: 14px;
-}
-
-
-.btn:hover {
-  transform: translateY(-2px);
-}
-
-.link {
-  text-decoration: none;
-  color: inherit;
-  font-size: 12px;
-}
-
-.link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-}
-
-.link-icon {
-  margin: 0 auto; 
-}
-
-.link-icon i {
-  font-size: 16px;
-  vertical-align: middle;
-  margin-left: 4px;
-}
-
-
-/* Mellanläge: 500–700px */
-@media (min-width: 500px) and (max-width: 700px) {
-  .card {
-    grid-template-columns: 220px 1fr;
-    gap: 16px;
-    padding: 20px;
+  
+  .card:hover{
+    box-shadow: var(--shadow);
+    border-color: rgba(47,77,255,0.22);
   }
-
-  .card-media {
-    height: 160px;
+  
+  /* --- Glow spotlight overlay --- */
+  .card::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 200ms ease;
+  
+    background: radial-gradient(
+      600px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(255,255,255,0.16),
+      rgba(255,255,255,0.06) 35%,
+      transparent 60%
+    );
   }
-
-  .card-title {
-    font-size: 15px;
+  
+  .card:hover::before{
+    opacity: 1;
   }
-
-  .card-desc {
-    font-size: 11px;
-    line-height: 1.4;
-
-    /* valfritt: håll kortet kompakt */
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+  
+  /* --- Depth layers --- */
+  .card-media{ transform: translateZ(22px); }
+  .card-body { transform: translateZ(12px); }
+  
+  /* =========================
+     REVERSE
+     ========================= */
+  
+  .card.reverse{
+    grid-template-columns: minmax(0, 1fr) minmax(0, 360px);
+  }
+  
+  .card.reverse .card-media{ order: 2; }
+  .card.reverse .card-body { order: 1; }
+  
+  /* =========================
+     MEDIA
+     ========================= */
+  
+  .card-media{
+    border-radius: 18px;
     overflow: hidden;
-  }
-
-  .card-actions {
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-}
-
-/* Mobil */
-@media (max-width: 500px) {
-  .card {
-    grid-template-columns: 1fr;
-    padding: 20px;
-    gap: 16px;
-
-    max-height: none;
-  }
-
-  .card-media {
+  
+    /* mer stabilt än max-height */
     aspect-ratio: 16 / 10;
-    height: auto; 
+    background: rgba(255,255,255,0.03);
+  
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,0.06),
+      0 12px 30px rgba(0,0,0,0.35);
   }
-
-  .card-body {
-    max-height: none;
-  }
-
-  .card-tags {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .card-actions {
-    flex-wrap: wrap;
-  }
-
-  .btn {
+  
+  .card-image{
     width: 100%;
-    justify-content: center;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  
+    transform: scale(1.02);
+    transition: transform 240ms ease, filter 240ms ease;
   }
-}
+  
+  .card:hover .card-image{
+    transform: scale(1.06);
+    filter: saturate(1.05) contrast(1.02);
+  }
+  
+  /* =========================
+     BODY
+     ========================= */
+  
+  .card-body{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0; /* viktigt så text bryts snyggt */
+  }
+  
+  .card-title{
+    margin: 0;
+    font-size: clamp(1.15rem, 1.7vw, 1.55rem);
+    font-weight: 650;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    color: var(--text);
+  }
+  
+  .card-tech{
+    margin-top: 2px;
+  }
+  
+  /* (om du fortfarande använder .card-tags) */
+  .card-tags{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Beskrivning */
+  .card-desc{
+    margin: 0;
+    font-size: clamp(0.95rem, 1.05vw, 1.02rem);
+    color: var(--text-soft);
+    line-height: 1.75;
+    max-width: 70ch;
+  }
+  
+  /* clampa text lite på medium skärmar så layouten håller */
+  @media (max-width: 760px){
+    .card-desc{
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+  
+  /* =========================
+     ACTIONS
+     ========================= */
+  
+  .card-actions{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 6px;
+  }
+  
+  /* 👇 viktigt: undvik att krocka med globala .btn */
+  .card-actions .btn{
+    border-radius: 14px;
+    padding: 0.7rem 1.05rem;
+    font-size: 0.95rem;
+  
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  
+    text-decoration: none;
+    transition: transform 160ms ease, box-shadow 200ms ease, border-color 200ms ease, background 200ms ease;
+  }
+  
+  .card-actions .btn:hover{
+    transform: translateY(-2px);
+  }
+  
+  .card-actions .btn:focus-visible{
+    outline: none;
+    box-shadow: var(--focus-ring);
+  }
+  
+  /* Outline-länk (Live) – om du använder btn--outline */
+  .card-actions .btn--outline{
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.14);
+  }
+  
+  .card-actions .btn--outline:hover{
+    border-color: rgba(47,77,255,0.45);
+    box-shadow: 0 10px 26px rgba(47,77,255,0.18);
+  }
+  
+  /* =========================
+     RESPONSIVE BREAKPOINTS
+     ========================= */
+  
+  @media (max-width: 980px){
+    .card,
+    .card.reverse{
+      grid-template-columns: 1fr;
+    }
+  
+    .card.reverse .card-media,
+    .card.reverse .card-body{
+      order: unset;
+    }
+  
+    /* På touch/mindre screens: tilt kan kännas “ryckigt”, du kan stänga om du vill */
+    .card{
+      transform: none;
+    }
+  }
+  
+  /* Mellanläge: bättre spacing */
+  @media (max-width: 700px){
+    .card{
+      padding: 18px;
+      border-radius: 18px;
+    }
+  
+    .card-media{
+      border-radius: 16px;
+    }
+  
+    .card-actions .btn{
+      width: 100%;
+    }
+  }
+  
+  /* Mobil */
+  @media (max-width: 500px){
+    .card-wrap{
+      margin: 22px 0;
+    }
+  
+    .card{
+      padding: 16px;
+      gap: 14px;
+    }
+  
+    .card-title{
+      font-size: 1.2rem;
+    }
+  
+    .card-actions{
+      gap: 10px;
+    }
+  }
+  
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    .card,
+    .card-image{
+      transition: none !important;
+    }
+  }
+  
