@@ -19,7 +19,11 @@
       <h3 class="card-title">{{ project.title }}</h3>
 
       <div class="card-tech" aria-label="Technologies used">
-        <app-tech [tags]="project.tags" [marquee]="false" size="sm"></app-tech>
+        <ul class="card-tags">
+          <li *ngFor="let tag of project.tags">
+            <span>{{ tag }}</span>
+          </li>
+        </ul>
       </div>
 
       <p class="card-desc">{{ project.description }}</p>

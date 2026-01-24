@@ -1,272 +1,298 @@
 /* =========================
-   PROJECT CARD
+   PROJECT CARD (FIXED + POLISHED)
    ========================= */
 
-   .card-wrap{
-    perspective: 1100px;
-    margin: clamp(28px, 4vw, 46px) 0;
-  }
-  
-  /* --- Card --- */
-  .card{
-    position: relative;
-    margin-inline: auto;
-  
-    display: grid;
-    grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
-    gap: clamp(16px, 2.2vw, 24px);
-  
-    padding: clamp(16px, 2.4vw, 22px);
-    border-radius: 22px;
-  
-    color: var(--text);
-    background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-    border: 1px solid rgba(255,255,255,0.08);
-  
-    align-items: center;
-    min-width: 0;
-    max-width: 980px;
-  
-    transform-style: preserve-3d;
-    transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
-    transition: transform 140ms ease, box-shadow 220ms ease, border-color 220ms ease;
-    will-change: transform;
-  
-    box-shadow: var(--shadow-soft);
-  }
-  
-  .card:hover{
-    box-shadow: var(--shadow);
-    border-color: rgba(47,77,255,0.22);
-  }
-  
-  /* --- Glow spotlight overlay --- */
-  .card::before{
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 200ms ease;
-  
-    background: radial-gradient(
-      600px circle at var(--mx, 50%) var(--my, 50%),
-      rgba(255,255,255,0.16),
-      rgba(255,255,255,0.06) 35%,
-      transparent 60%
-    );
-  }
-  
-  .card:hover::before{
-    opacity: 1;
-  }
-  
-  /* --- Depth layers --- */
-  .card-media{ transform: translateZ(22px); }
-  .card-body { transform: translateZ(12px); }
-  
-  /* =========================
-     REVERSE
-     ========================= */
-  
-  .card.reverse{
-    grid-template-columns: minmax(0, 1fr) minmax(0, 360px);
-  }
-  
-  .card.reverse .card-media{ order: 2; }
-  .card.reverse .card-body { order: 1; }
-  
-  /* =========================
-     MEDIA
-     ========================= */
-  
-  .card-media{
-    border-radius: 18px;
-    overflow: hidden;
-  
-    /* mer stabilt än max-height */
-    aspect-ratio: 16 / 10;
-    background: rgba(255,255,255,0.03);
-  
-    box-shadow:
-      inset 0 0 0 1px rgba(255,255,255,0.06),
-      0 12px 30px rgba(0,0,0,0.35);
-  }
-  
-  .card-image{
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-  
-    transform: scale(1.02);
-    transition: transform 240ms ease, filter 240ms ease;
-  }
-  
-  .card:hover .card-image{
-    transform: scale(1.06);
-    filter: saturate(1.05) contrast(1.02);
-  }
-  
-  /* =========================
-     BODY
-     ========================= */
-  
-  .card-body{
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    min-width: 0; /* viktigt så text bryts snyggt */
-  }
-  
-  .card-title{
-    margin: 0;
-    font-size: clamp(1.15rem, 1.7vw, 1.55rem);
-    font-weight: 650;
-    letter-spacing: -0.01em;
-    line-height: 1.15;
-    color: var(--text);
-  }
-  
-  .card-tech{
-    margin-top: 2px;
-  }
-  
-  /* (om du fortfarande använder .card-tags) */
-  .card-tags{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  /* Beskrivning */
+.card-wrap{
+  perspective: 1100px;
+  margin: clamp(28px, 4vw, 46px) 0;
+}
+
+.card{
+  position: relative;
+  margin-inline: auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+  gap: clamp(16px, 2.2vw, 24px);
+
+  padding: clamp(16px, 2.4vw, 22px);
+  border-radius: 22px;
+
+  color: var(--text);
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.08);
+
+  align-items: center;
+  min-width: 0;
+  max-width: 900px;
+
+  /* Tilt */
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  will-change: transform;
+
+  transition:
+    transform 140ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+  box-shadow: var(--shadow-soft);
+
+  overflow: hidden; 
+}
+
+.card::before{
+  content:"";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 220ms ease;
+
+  background: radial-gradient(
+    600px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255,255,255,0.14),
+    rgba(255,255,255,0.06) 35%,
+    transparent 62%
+  );
+}
+
+.card:hover{
+  box-shadow: var(--shadow);
+  border-color: rgba(47,77,255,0.22);
+}
+
+.card:hover::before{
+  opacity: 1;
+}
+
+/* 3D layers */
+.card-media{ transform: translateZ(22px); }
+.card-body { transform: translateZ(12px); }
+
+/* Reverse layout */
+.card.reverse{
+  grid-template-columns: minmax(0, 1fr) minmax(0, 360px);
+}
+
+.card.reverse .card-media{ order: 2; }
+.card.reverse .card-body { order: 1; }
+
+/* =========================
+   MEDIA
+   ========================= */
+
+.card-media{
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: rgba(255,255,255,0.03);
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.06),
+    0 12px 30px rgba(0,0,0,0.35);
+
+  position: relative;
+}
+
+.card-media::after{
+  content:"";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.10), rgba(0,0,0,0.30));
+  opacity: 0.9;
+}
+
+.card-image{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+
+  transform: scale(1.05);
+  transition: transform 240ms ease, filter 240ms ease;
+}
+
+.card:hover .card-image{
+  transform: scale(1.06);
+  filter: saturate(1.05) contrast(1.02);
+}
+
+/* =========================
+   BODY
+   ========================= */
+
+.card-body{
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 10px;
+}
+
+.card-title{
+  margin: 0;
+  font-size: clamp(1.15rem, 1.7vw, 1.55rem);
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+.card-tags{
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card-tags li{
+  background: rgba(255,255,255,0.05);
+  color: var(--text-soft);
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+/* Beskrivning */
+.card-desc{
+  margin: 0;
+  font-size: clamp(0.95rem, 1.05vw, 1.02rem);
+  color: var(--text-soft);
+  line-height: 1.75;
+  max-width: 70ch;
+}
+
+/* Clampa text lite på medium skärmar så layouten håller */
+@media (max-width: 760px){
   .card-desc{
-    margin: 0;
-    font-size: clamp(0.95rem, 1.05vw, 1.02rem);
-    color: var(--text-soft);
-    line-height: 1.75;
-    max-width: 70ch;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
-  
-  /* clampa text lite på medium skärmar så layouten håller */
-  @media (max-width: 760px){
-    .card-desc{
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
+}
+
+/* =========================
+   ACTIONS
+   ========================= */
+
+.card-actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  /* separera från text */
+  margin-top: 6px;
+}
+
+/* Viktigt: undvik att krocka med global .btn */
+.card-actions .btn{
+  border-radius: 14px;
+  padding: 0.7rem 1.05rem;
+  font-size: 0.95rem;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  text-decoration: none;
+
+  transition:
+    transform 160ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease,
+    background 200ms ease;
+}
+
+.card-actions .btn:hover{
+  transform: translateY(-2px);
+}
+
+.card-actions .btn:focus-visible{
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* Outline-länk (Live) – om du använder btn--outline */
+.card-actions .btn--outline{
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.14);
+}
+
+.card-actions .btn--outline:hover{
+  border-color: rgba(47,77,255,0.45);
+  box-shadow: 0 10px 26px rgba(47,77,255,0.18);
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 980px){
+  .card,
+  .card.reverse{
+    grid-template-columns: 1fr;
   }
-  
-  /* =========================
-     ACTIONS
-     ========================= */
-  
-  .card-actions{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 6px;
+
+  .card.reverse .card-media,
+  .card.reverse .card-body{
+    order: unset;
   }
-  
-  /* 👇 viktigt: undvik att krocka med globala .btn */
+}
+
+/* Mellanläge */
+@media (max-width: 700px){
+  .card{
+    padding: 18px;
+    border-radius: 18px;
+    gap: 16px;
+  }
+
+  .card-media{
+    border-radius: 16px;
+  }
+
   .card-actions .btn{
-    border-radius: 14px;
-    padding: 0.7rem 1.05rem;
-    font-size: 0.95rem;
-  
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* Mobil */
+@media (max-width: 500px){
+  .card-wrap{
+    margin: 22px 0;
+  }
+
+  .card{
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .card-title{
+    font-size: 1.2rem;
+  }
+
+  .card-actions{
     gap: 10px;
-  
-    text-decoration: none;
-    transition: transform 160ms ease, box-shadow 200ms ease, border-color 200ms ease, background 200ms ease;
   }
-  
-  .card-actions .btn:hover{
-    transform: translateY(-2px);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .card,
+  .card-image{
+    transition: none !important;
   }
-  
-  .card-actions .btn:focus-visible{
-    outline: none;
-    box-shadow: var(--focus-ring);
+
+  /* stäng tilt visuellt om du vill */
+  .card{
+    transform: none !important;
   }
-  
-  /* Outline-länk (Live) – om du använder btn--outline */
-  .card-actions .btn--outline{
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.14);
-  }
-  
-  .card-actions .btn--outline:hover{
-    border-color: rgba(47,77,255,0.45);
-    box-shadow: 0 10px 26px rgba(47,77,255,0.18);
-  }
-  
-  /* =========================
-     RESPONSIVE BREAKPOINTS
-     ========================= */
-  
-  @media (max-width: 980px){
-    .card,
-    .card.reverse{
-      grid-template-columns: 1fr;
-    }
-  
-    .card.reverse .card-media,
-    .card.reverse .card-body{
-      order: unset;
-    }
-  
-    /* På touch/mindre screens: tilt kan kännas “ryckigt”, du kan stänga om du vill */
-    .card{
-      transform: none;
-    }
-  }
-  
-  /* Mellanläge: bättre spacing */
-  @media (max-width: 700px){
-    .card{
-      padding: 18px;
-      border-radius: 18px;
-    }
-  
-    .card-media{
-      border-radius: 16px;
-    }
-  
-    .card-actions .btn{
-      width: 100%;
-    }
-  }
-  
-  /* Mobil */
-  @media (max-width: 500px){
-    .card-wrap{
-      margin: 22px 0;
-    }
-  
-    .card{
-      padding: 16px;
-      gap: 14px;
-    }
-  
-    .card-title{
-      font-size: 1.2rem;
-    }
-  
-    .card-actions{
-      gap: 10px;
-    }
-  }
-  
-  /* Reduced motion */
-  @media (prefers-reduced-motion: reduce){
-    .card,
-    .card-image{
-      transition: none !important;
-    }
-  }
+}
+
   
