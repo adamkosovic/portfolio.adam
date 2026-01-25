@@ -8,6 +8,7 @@
   > 
     <div class="card-media">
       <a
+        *ngIf="project.liveUrl; else staticImage"
         class="card-media-link" 
         [href]="project.liveUrl"
         target="_blank"
@@ -15,12 +16,20 @@
         aria-label="Open live preview"
       >
         <img
-        class="card-image"
-        [src]="project.imageUrl"
-        [alt]="project.imageAlt"
-        loading="lazy"
+          class="card-image"
+          [src]="project.imageUrl"
+          [alt]="project.imageAlt"
+          loading="lazy"
         />
       </a>
+        <ng-template #staticImage>
+          <img
+            class="card-image"
+            [src]="project.imageUrl"
+            [alt]="project.imageAlt"
+            loading="lazy"
+          />
+        </ng-template>
     </div>
 
     <div class="card-body">
@@ -49,6 +58,7 @@
         </a>
 
         <a
+          *ngIf="project.liveUrl"
           class="btn btn--lg btn--primary"
           [href]="project.liveUrl"
           target="_blank"
