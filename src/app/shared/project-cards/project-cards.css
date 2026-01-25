@@ -47,13 +47,6 @@
   pointer-events: none;
   opacity: 0;
   transition: opacity 220ms ease;
-
-  background: radial-gradient(
-    600px circle at var(--mx, 50%) var(--my, 50%),
-    rgba(255,255,255,0.14),
-    rgba(255,255,255,0.06) 35%,
-    transparent 62%
-  );
 }
 
 .card:hover{
@@ -92,6 +85,7 @@
     0 12px 30px rgba(0,0,0,0.35);
 
   position: relative;
+  width: 100%;
 }
 
 .card-media::after{
@@ -105,19 +99,29 @@
   opacity: 0.9;
 }
 
+.card-media::after{
+  opacity: 0.85;
+  transition: opacity 240ms ease;
+}
+
+.card:hover .card-media::after{
+  opacity: 0.65;
+}
+
+
 .card-image{
   width: 100%;
   height: 100%;
   display: block;
   object-fit: cover;
 
-  transform: scale(1.05);
-  transition: transform 240ms ease, filter 240ms ease;
+  transform: scale(1.02);
+  transition: transform 320ms ease, filter 240ms ease;
 }
 
 .card:hover .card-image{
-  transform: scale(1.06);
-  filter: saturate(1.05) contrast(1.02);
+  transform: scale(1.10);
+  filter: saturate(1.08) contrast(1.04);
 }
 
 /* =========================
@@ -125,10 +129,13 @@
    ========================= */
 
 .card-body{
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   min-width: 0;
   gap: 10px;
+  padding: 0 20px;
 }
 
 .card-title{
@@ -157,7 +164,6 @@
   white-space: nowrap;
 }
 
-/* Beskrivning */
 .card-desc{
   margin: 0;
   font-size: clamp(0.95rem, 1.05vw, 1.02rem);
@@ -166,7 +172,6 @@
   max-width: 70ch;
 }
 
-/* Clampa text lite på medium skärmar så layouten håller */
 @media (max-width: 760px){
   .card-desc{
     display: -webkit-box;
@@ -182,22 +187,14 @@
 
 .card-actions{
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-
-  /* separera från text */
-  margin-top: 6px;
+  margin-top: 1.2rem;
+  gap: 15px;
 }
 
-/* Viktigt: undvik att krocka med global .btn */
 .card-actions .btn{
   border-radius: 14px;
   padding: 0.7rem 1.05rem;
   font-size: 0.95rem;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   gap: 10px;
 
   text-decoration: none;
@@ -221,7 +218,6 @@
 /* Outline-länk (Live) – om du använder btn--outline */
 .card-actions .btn--outline{
   background: transparent;
-  border: 1px solid rgba(255,255,255,0.14);
 }
 
 .card-actions .btn--outline:hover{

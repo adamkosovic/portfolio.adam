@@ -303,7 +303,6 @@
      transform: translateY(0);
    }
    
-   /* PRIMARY (brand) -> transparent + brand glow på hover */
    .btn--primary {
      background: var(--gradient);
      color: #0b1020;

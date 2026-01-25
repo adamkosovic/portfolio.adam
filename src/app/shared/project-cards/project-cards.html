@@ -5,14 +5,22 @@
     (mousemove)="tilt($event, cardEl)"
     (mouseleave)="resetTilt(cardEl)"
     [class.reverse]="reverse"
-  >
+  > 
     <div class="card-media">
-      <img
+      <a
+        class="card-media-link" 
+        [href]="project.liveUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open live preview"
+      >
+        <img
         class="card-image"
         [src]="project.imageUrl"
         [alt]="project.imageAlt"
         loading="lazy"
-      />
+        />
+      </a>
     </div>
 
     <div class="card-body">
@@ -30,7 +38,7 @@
 
       <div class="card-actions">
         <a
-          class="btn btn--lg"
+          class="btn btn--lg btn--secondary"
           [href]="project.repoUrl"
           target="_blank"
           rel="noopener noreferrer"
@@ -41,7 +49,7 @@
         </a>
 
         <a
-          class="btn btn--lg btn--outline"
+          class="btn btn--lg btn--primary"
           [href]="project.liveUrl"
           target="_blank"
           rel="noopener noreferrer"
