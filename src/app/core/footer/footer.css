@@ -1,6 +1,6 @@
 .footer{
   position: relative;
-  margin-top: var(--space-8);
+  margin-top: var(--space-1);
   padding: var(--space-6) var(--gutter);
 
   border-top: 1px solid var(--border);
