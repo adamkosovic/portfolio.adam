@@ -1,11 +1,14 @@
-.socials {
+/* ===== Socials container ===== */
+.socials{
   display: flex;
+  align-items: center;
   gap: 0.75rem;
 }
 
-
-.social {
-  --size: 46px;
+/* ===== Social icon ===== */
+.social{
+  /* responsiv storlek */
+  --size: clamp(40px, 4.5vw, 46px);
 
   width: var(--size);
   height: var(--size);
@@ -15,61 +18,78 @@
   justify-content: center;
 
   border-radius: 50%;
-  color: var(--text, #fff);
-  background: #000;
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
 
-  border: 2px solid transparent;
+  /* gradient border */
+  border: 1.5px solid transparent;
   background:
-    linear-gradient(#000, #000) padding-box,
+    linear-gradient(var(--bg), var(--bg)) padding-box,
     var(--gradient) border-box;
 
-  cursor: pointer;
-  text-decoration: none;
+  box-shadow: var(--shadow-soft);
 
   transition:
-    transform 0.2s ease,
-    box-shadow 0.25s ease,
-    background-position 0.3s ease,
-    color 0.2s ease;
+    transform 180ms ease,
+    box-shadow 220ms ease,
+    background 220ms ease,
+    color 180ms ease;
 }
 
-.social svg {
-  width: 18px;
-  height: 18px;
+/* SVG size scales with container */
+.social svg{
+  width: clamp(16px, 2.4vw, 18px);
+  height: clamp(16px, 2.4vw, 18px);
   fill: currentColor;
 }
 
-
-.social:hover {
+/* Hover (desktop) */
+.social:hover{
   transform: translateY(-2px) scale(1.05);
   background:
     var(--gradient) padding-box,
     var(--gradient) border-box;
 
-  color: #000;
-  box-shadow: 0 10px 25px rgba(36, 198, 220, 0.35);
+  color: #0b1020;
+
+  box-shadow:
+    var(--shadow-brand-tight),
+    var(--shadow-brand-ambient),
+    var(--shadow-brand-soft);
 }
 
-/* Active */
-.social:active {
+/* Active (touch feedback) */
+.social:active{
   transform: scale(0.95);
 }
 
-
-.social:focus-visible {
+/* Keyboard focus */
+.social:focus-visible{
   outline: none;
   box-shadow:
-    0 0 0 3px rgba(36, 198, 220, 0.6),
-    0 0 0 6px rgba(0, 0, 0, 0.8);
+    var(--focus-ring),
+    var(--shadow-brand-ambient);
 }
 
-
-.social--cta {
-  animation: pulse 3s ease-in-out infinite;
+/* ===== CTA / highlighted icon ===== */
+.social--cta{
+  animation: social-pulse 3s ease-in-out infinite;
 }
 
-@keyframes pulse {
-  50% {
-    box-shadow: 0 0 18px rgba(36, 198, 220, 0.4);
+@keyframes social-pulse{
+  50%{
+    box-shadow:
+      0 0 0 4px var(--brand-150),
+      var(--shadow-brand-ambient);
   }
+}
+
+/* ===== Responsive tweaks ===== */
+@media (max-width: 480px){
+  .socials{
+    gap: 1rem;
+  }
+
+
 }
