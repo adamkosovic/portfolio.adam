@@ -127,13 +127,11 @@ section {
   .nav-list {
     position: absolute;
     top: calc(82% + 10px);
-
     left: 12px;
-    right: 12px;                 /* lite luft från kanten */
-    left: 12px;                  /* gör att den kan bli bred utan att gå utanför */
-    width: auto;                 /* låt left+right styra bredden */
-    max-width: none;             /* behövs inte längre */
-    
+    right: 12px;                
+    left: 12px;                  
+    width: auto;               
+    max-width: none;           
     padding: 12px;
     margin: 0;
     display: grid;
