@@ -1,12 +1,12 @@
 
 .hero-container {
   position: relative;
-  min-height: calc(100svh - var(--nav-h)); /* hel skärm */
+  min-height: calc(100svh - var(--nav-h)); 
   display: grid;
   place-items: center;
   padding-block: max(var(--space-6), 10vh);
-  width: 100%;          /* fullbredd */
-  margin: 0;            /* ingen centrerad container här */
+  width: 100%;        
+  margin: 0;          
 }
 
 .hero-inner {
@@ -101,6 +101,7 @@
 .btn i {
   font-size: 20px;
   color: black;
+  margin-right: 7px;
 }
 
 .btn:hover i {
