@@ -401,9 +401,7 @@
 }
 
 @media (max-width: 700px) {
-  .tech-toggle {
-    display: none;
-  }
+
 }
 
 
@@ -456,17 +454,10 @@
     min-width: 0;
   }
 
-
-
   .tech-toggle{
     width: 38px;
     height: 38px;
   }
 }
 
-@media (hover: none){
-  .bar:hover{
-    background: transparent;
-    transform: none;
-  }
-}
+
