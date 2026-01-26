@@ -65,7 +65,6 @@
 }
 
 
-
 .timeline {
   position: relative;
   list-style: none;
@@ -113,7 +112,7 @@
   grid-template-columns: minmax(260px, 520px) 56px minmax(260px, 520px);
   grid-template-rows: auto;
   align-items: center;
-  margin: 34px 0;
+  margin: 70px 0;
 }
 
 .timeline .date {
@@ -136,9 +135,6 @@
   text-align: right;
 }
 
-
-
-
 .timeline .dot{
   grid-column: 2;
   grid-row: 1;
@@ -157,8 +153,8 @@
   position:absolute;
   top:50%;
   transform: translateY(-50%);
-  height:2px;
-  width: 60px;
+  height: 3px;
+  width: 58px;
   background: #e5e5e5;
   z-index: 2;
 }
@@ -189,45 +185,103 @@
   left: 100%;
 }
 
+@media (max-width: 980px){
+  .timeline .dot::after{
+    width: 56px;
+  }
+}
 
+@media (max-width: 768px){
 
-
-@media (max-width: 768px) {
   .timeline::before,
-  .timeline::after {
-    left: 20px;
+  .timeline::after{
+    left: 26px;          
     transform: none;
   }
 
-  .timeline .item {
-    grid-template-columns: 40px 1fr;
+  .timeline::after{
+    display: none;
   }
 
-  .timeline .dot {
+  .timeline .item{
+    margin: 26px 0;
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    grid-template-rows: auto auto;
+    align-items: start;
+    row-gap: 8px;
+  }
+
+  .timeline .date{
+    grid-column: 2;
+    grid-row: 1;
+    position: static;
+    transform: none;
+    margin: 0 0 4px 0;
+    font-size: 0.78rem;
+    text-align: left;
+    opacity: 0.75;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .timeline .dot{
     grid-column: 1;
+    grid-row: 2;
+
     justify-self: center;
+    align-self: start;
+    margin-top: 29px;    
   }
 
-
-  .timeline .dot::after {
+  .timeline .dot::after{
     left: 100%;
     right: auto;
-    width: 18px;
+
+    width: 36px;        
+    height: 3px;
   }
 
   .timeline .item.leftItem app-experience-card,
-  .timeline .item.rightItem app-experience-card {
+  .timeline .item.rightItem app-experience-card{
     grid-column: 2;
+    grid-row: 2;
+
     justify-self: stretch;
     margin: 0;
   }
-  .timeline .date {
-    grid-column: 2;
-    margin: 0 0 6px 0;
-    font-size: 0.75rem;
+
+  .timeline .item.leftItem .date,
+  .timeline .item.rightItem .date{
+    left: auto;
+    right: auto;
     text-align: left;
   }
-  .timeline .date {
-    display: none;
+}
+
+
+@media (max-width: 480px){
+  .timeline::before,
+  .timeline::after{
+    left: 20px;
+  }
+
+  .timeline .item{
+    grid-template-columns: 46px 1fr;
+    margin: 20px 0;
+    row-gap: 6px;
+  }
+
+  .timeline .dot{
+    margin-top: 29px;
+  }
+
+  .timeline .dot::after{
+    width: 31px;
+  }
+
+  .timeline .date{
+    font-size: 0.74rem;
+    white-space: normal; 
   }
 }
