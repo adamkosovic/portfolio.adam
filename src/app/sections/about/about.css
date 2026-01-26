@@ -89,7 +89,6 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* Grid */
 .traits {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -108,7 +107,6 @@
   .traits { grid-template-columns: 1fr; }
 }
 
-/* Card/Button */
 .trait {
   width: 100%;
   text-align: left;
@@ -224,42 +222,6 @@
   line-height: 1.55;
 }
 
-/* ===== NEXT BUTTON (ABOUT) ===== */
-
-.about-section .nextsec-btn {
-  position: absolute;
-  left: 50%;
-  bottom: 1.25rem; 
-  transform: translateX(-50%);
-
-  width: 42px;
-  height: 42px;
-
-  display: grid;
-  place-items: center;
-
-  background: transparent;
-  border: none;
-
-  cursor: pointer;
-  opacity: 0.9;
-  z-index: 2;
-
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.about-section .nextsec-btn img {
-  width: 100%;
-  height: 100%;
-  opacity: 0.9;
-  filter: drop-shadow(0 0 12px rgba(47, 77, 255, 0.35));
-}
-
-.about-section .nextsec-btn:hover {
-  transform: translateX(-50%) translateY(6px);
-  opacity: 1;
-}
-
 /* ===== RESPONSIVE POLISH ===== */
 
 @media (max-width: 600px) {
@@ -288,10 +250,6 @@
   .trait-icon {
     width: 40px;
     height: 40px;
-  }
-
-  .about-section .nextsec-btn {
-    bottom: 0.75rem;
   }
 }
 

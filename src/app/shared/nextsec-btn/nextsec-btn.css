@@ -2,6 +2,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  bottom: 24px;
 
   width: 42px;
   height: 42px;
