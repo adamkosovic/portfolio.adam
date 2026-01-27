@@ -222,7 +222,19 @@
   line-height: 1.55;
 }
 
+.div-nextsec-btn {
+  margin-top: clamp(3rem, 7vw, 6rem);
+  display: flex;
+  justify-content: center;
+}
+
 /* ===== RESPONSIVE POLISH ===== */
+
+@media(max-width: 800px){
+  .div-nextsec-btn {
+    margin-top: 4rem;
+  }
+}
 
 @media (max-width: 600px) {
   .heading {
@@ -250,6 +262,10 @@
   .trait-icon {
     width: 40px;
     height: 40px;
+  }
+
+  .div-nextsec-btn {
+    margin-top: 8rem;
   }
 }
 

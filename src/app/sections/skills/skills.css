@@ -351,6 +351,14 @@
     padding: clamp(0.9rem, 2vw, 1.2rem);
     box-shadow: var(--shadow-soft);
   }
+
+  .div-nextsec-btn {
+    margin-top: clamp(3rem, 7vw, 6rem);
+    display: flex;
+    justify-content: center;
+  }
+
+
 /* =========================
    RESPONSIVE 
    ========================= */
@@ -376,6 +384,10 @@
     place-items: center;
     align-content: center;
   }
+
+  .div-nextsec-btn {
+    margin-top: 6rem;
+  }
 }
 
 @media (max-width: 980px){
@@ -387,6 +399,10 @@
 
   .circle{
     --size: clamp(92px, 12vw, 128px);
+  }
+
+  .div-nextsec-btn {
+    margin-top: 6rem;
   }
 }
 
