@@ -5,27 +5,32 @@
       <h2>Contact Me</h2>
     </header>
 
-    <form class="contact-form" novalidate>
+    <form 
+      class="contact-form" 
+      novalidate
+      action="https://formspree.io/f/meegnakz"
+      method="POST"  
+    >
       <h3>Email Me</h3>
       <div class="field">
         <label for="name">Name</label>
-        <input id="name" type="text" placeholder="Your name" />
+        <input id="name" name="name" type="text" placeholder="Your name" required/>
       </div>
 
       <div class="field">
         <label for="email">Email</label>
-        <input id="email" type="email" placeholder="your@email.com" />
+        <input id="email" name="email" type="email" placeholder="your@email.com" required/>
       </div>
 
       <div class="field">
-        <label for="Subject">Subject</label>
-        <input id="Subject" type="text" placeholder="Subject" />
+        <label for="subject">Subject</label>
+        <input id="subject" name="subject" type="text" placeholder="Subject" required/>
       </div>
 
 
       <div class="field">
         <label for="message">Message</label>
-        <textarea id="message" rows="6" placeholder="Your message"></textarea>
+        <textarea id="message" name="message" rows="6" placeholder="Your message" required></textarea>
       </div>
 
       <button type="submit" class="submit-btn">
