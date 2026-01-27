@@ -180,6 +180,14 @@
   .btns {
     gap: var(--space-3);
   }
+
+  .hero-role span {
+    font-size: 1.2rem;
+  }
+
+  .hero-left p {
+    font-size: 1.2rem;
+  }
 }
 
 @media (max-width: 900px) {
