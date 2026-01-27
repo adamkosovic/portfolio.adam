@@ -1,41 +1,78 @@
-<section appScrollSection #sec="scrollSection" class="contact-section" id="contact">
+<section
+  appScrollSection
+  #sec="scrollSection"
+  class="contact-section"
+  id="contact"
+>
   <div class="contact-container">
     <header class="heading">
       <p class="eyebrow">I'd love to hear from you</p>
       <h2>Contact Me</h2>
     </header>
 
-    <form 
-      class="contact-form" 
+    <form
+      class="contact-form"
+      (submit)="submit($event)"
       novalidate
-      action="https://formspree.io/f/meegnakz"
-      method="POST"  
     >
       <h3>Email Me</h3>
+
       <div class="field">
         <label for="name">Name</label>
-        <input id="name" name="name" type="text" placeholder="Your name" required/>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          placeholder="Your name"
+          required
+        />
       </div>
 
       <div class="field">
         <label for="email">Email</label>
-        <input id="email" name="email" type="email" placeholder="your@email.com" required/>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="your@email.com"
+          required
+        />
       </div>
 
       <div class="field">
         <label for="subject">Subject</label>
-        <input id="subject" name="subject" type="text" placeholder="Subject" required/>
+        <input
+          id="subject"
+          name="subject"
+          type="text"
+          placeholder="Subject"
+          required
+        />
       </div>
-
 
       <div class="field">
         <label for="message">Message</label>
-        <textarea id="message" name="message" rows="6" placeholder="Your message" required></textarea>
+        <textarea
+          id="message"
+          name="message"
+          rows="6"
+          placeholder="Your message"
+          required
+        ></textarea>
       </div>
 
-      <button type="submit" class="submit-btn">
-        Send message
+      <button type="submit" class="submit-btn" [disabled]="loading">
+        {{ loading ? 'Sending…' : 'Send message' }}
       </button>
+
+      <!-- STATUS -->
+      <p class="form-status success" *ngIf="success">
+        Message sent ✅ I’ll get back to you soon.
+      </p>
+
+      <p class="form-status error" *ngIf="error">
+        Something went wrong. Please try again.
+      </p>
     </form>
   </div>
 </section>
