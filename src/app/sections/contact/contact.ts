@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { ScrollSectionDirective } from '../../directive/scroll-section';
 
 @Component({
@@ -9,51 +9,45 @@ import { ScrollSectionDirective } from '../../directive/scroll-section';
   styleUrl: './contact.css',
 })
 export class Contact {
+  loading = false;
   success = false;
   error = false;
-  loading = false;
-  
+
+  constructor(private zone: NgZone) {}
+
   async submit(event: Event) {
     event.preventDefault();
-  
     const form = event.target as HTMLFormElement | null;
     if (!form) return;
-  
-    this.loading = true;
-    this.success = false;
-    this.error = false;
-  
-    const endpoint = 'https://formspree.io/f/meegnakz'; // <-- DIN endpoint
-  
-    // timeout så den inte kan fastna för evigt
-    const controller = new AbortController();
-    const t = setTimeout(() => controller.abort(), 10000);
-  
+
+    // Sätt state INNE i zonen
+    this.zone.run(() => {
+      this.loading = true;
+      this.success = false;
+      this.error = false;
+    });
+
     try {
-      console.log('Submitting to:', endpoint);
-  
-      const response = await fetch(endpoint, {
+      const res = await fetch('https://formspree.io/f/meegnakz', {
         method: 'POST',
         body: new FormData(form),
         headers: { Accept: 'application/json' },
-        signal: controller.signal,
       });
-  
-      console.log('Status:', response.status);
-  
-      const data = await response.json().catch(() => null);
-      console.log('Response:', data);
-  
-      if (!response.ok) throw new Error('Formspree failed');
-  
-      this.success = true;
-      form.reset();
-    } catch (err) {
-      console.error('Submit error:', err);
-      this.error = true;
+
+      if (!res.ok) throw new Error('Failed');
+
+      this.zone.run(() => {
+        this.success = true;
+        form.reset();
+      });
+    } catch (e) {
+      this.zone.run(() => {
+        this.error = true;
+      });
     } finally {
-      clearTimeout(t);
-      this.loading = false;
+      this.zone.run(() => {
+        this.loading = false; // <-- nu släpper "Sending..."
+      });
     }
   }
 }
