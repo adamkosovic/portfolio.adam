@@ -1,0 +1,37 @@
+.intro {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+
+  animation: introFadeOut 700ms ease forwards;
+  animation-delay: 1600ms;
+}
+
+@keyframes introFadeOut {
+  to {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.intro__inner {
+  text-align: center;
+  padding: 0 24px;
+}
+
+.intro__kicker {
+  margin: 0 0 12px;
+  font-size: 0.8rem;
+  letter-spacing: 0.35em;
+  opacity: 0.6;
+}
+
+.intro__title {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
