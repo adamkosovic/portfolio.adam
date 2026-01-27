@@ -56,11 +56,10 @@ section {
 }
 
 .nav-logo-text {
-  font-size: 1rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--nav-text);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  font-size: 0.9rem;
+  text-transform: uppercase;  
 }
 
 .logo-initials {
@@ -118,7 +117,6 @@ section {
 .nav-burger-menu{
   display: none;
   margin-left: auto; 
-
 }
 
 
