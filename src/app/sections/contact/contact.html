@@ -11,10 +11,12 @@
     </header>
 
     <form
+      action="https://formspree.io/f/meegnakz"
+      method="POST"
       class="contact-form"
-      (submit)="submit($event)"
-      novalidate
     >
+      <input type="hidden" name="_language" value="en"/>
+
       <h3>Email Me</h3>
 
       <div class="field">
@@ -61,18 +63,8 @@
         ></textarea>
       </div>
 
-      <button type="submit" class="submit-btn" [disabled]="loading">
-        {{ loading ? 'Sending…' : 'Send message' }}
-      </button>
-
-      <!-- STATUS -->
-      <p class="form-status success" *ngIf="success">
-        Message sent ✅ I’ll get back to you soon.
-      </p>
-
-      <p class="form-status error" *ngIf="error">
-        Something went wrong. Please try again.
-      </p>
+      <button type="submit" class="submit-btn">Send Message</button>
     </form>
   </div>
 </section>
+

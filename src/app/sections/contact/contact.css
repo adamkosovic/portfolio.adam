@@ -243,19 +243,6 @@ textarea:focus{
   box-shadow: var(--focus-ring);
 }
 
-.form-status {
-  margin-top: 14px;
-  font-size: 0.95rem;
-  opacity: 0.9;
-}
-
-.form-status.success {
-  color: #7dffb3;
-}
-
-.form-status.error {
-  color: #ff7d7d;
-}
 
 
 /* ===== Responsive ===== */
