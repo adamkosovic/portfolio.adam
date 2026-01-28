@@ -118,7 +118,7 @@ section {
 .nav-link{
   position: relative; 
   font-size: clamp(1rem, 1.1vw, 1.1rem);
-  font-weight: 500;
+  font-weight: 700;
   color: var(--nav-muted);
   text-decoration: none;
 
