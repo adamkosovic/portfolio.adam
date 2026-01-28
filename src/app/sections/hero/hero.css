@@ -164,6 +164,12 @@
   min-width: 0;
 }
 
+.div-nextsec-btn {
+  margin-top: clamp(3rem, 7vw, 6rem);
+  display: flex;
+  justify-content: center;
+}
+
 
 
 /* Responsive */
