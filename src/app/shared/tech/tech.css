@@ -46,7 +46,7 @@
 
 @keyframes tech-scroll{
   from{ transform: translateX(0); }
-  to{ transform: translateX(-100%); }
+  to{ transform: translateX(-50%); }
 }
 
 
@@ -243,6 +243,10 @@
     gap: 1.6rem;
   }
 
+  .tech-marquee:not(.is-static) {
+    display: flex;
+  }
+
   .tech-marquee:not(.is-static) .tech-stack.clone{
     display: flex !important;
     margin-left: 1.6rem;
@@ -256,6 +260,15 @@
     transform: none;
     background: transparent;
     box-shadow: none;
+  }
+
+  .tech-marquee:not(.is-static) .tech-stack,
+  .tech-marquee:not(.is-static) .tech-stack.clone {
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content;
+    will-change: transform;
+    transform: translate3d(0,0,0);
   }
 }
 
