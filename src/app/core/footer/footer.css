@@ -87,27 +87,29 @@
     text-align: center;
     font-size: 0.78rem;
   }
+
+  .socials{
+    gap: var(--space-2);
+  }
 }
 
 @media (max-width: 600px){
   .footer{
     padding-top: 40px;
-
   }
 
-  .footer-inner{
-    gap: 28px; /* mer spacing mellan namn, ikoner, text */
+  .socials{
+    margin-top: 8px;
+    gap: var(--space-2);
   }
+
 
   .footer-copy{
-    margin-top: 12px;
+    margin-top: 8px;
   }
 }
 
 @media (max-width: 420px){
-  .footer-name{
-    font-size: 1rem;
-  }
 
   .socials{
     gap: var(--space-2);

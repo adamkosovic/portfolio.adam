@@ -7,7 +7,6 @@
 
 /* ===== Social icon ===== */
 .social{
-  /* responsiv storlek */
   --size: clamp(40px, 4.5vw, 46px);
 
   width: var(--size);
@@ -22,7 +21,6 @@
   text-decoration: none;
   cursor: pointer;
 
-  /* gradient border */
   border: 1.5px solid transparent;
   background:
     linear-gradient(var(--bg), var(--bg)) padding-box,
@@ -37,14 +35,12 @@
     color 180ms ease;
 }
 
-/* SVG size scales with container */
 .social svg{
   width: clamp(16px, 2.4vw, 18px);
   height: clamp(16px, 2.4vw, 18px);
   fill: currentColor;
 }
 
-/* Hover (desktop) */
 .social:hover{
   transform: translateY(-2px) scale(1.05);
   background:
@@ -59,12 +55,10 @@
     var(--shadow-brand-soft);
 }
 
-/* Active (touch feedback) */
 .social:active{
   transform: scale(0.95);
 }
 
-/* Keyboard focus */
 .social:focus-visible{
   outline: none;
   box-shadow:
@@ -72,7 +66,6 @@
     var(--shadow-brand-ambient);
 }
 
-/* ===== CTA / highlighted icon ===== */
 .social--cta{
   animation: social-pulse 3s ease-in-out infinite;
 }
