@@ -208,58 +208,55 @@
    RESPONSIVE
    ========================= */
 
-   @media (max-width: 980px){
-    .card,
-    .card.reverse{
-      grid-template-columns: 1fr;
-      max-width: 650px;              /* gör kortet smalare på tablet */
-      padding: 16px;                 /* mindre padding */
-      gap: 14px;                     /* mindre luft mellan media/text */
-    }
-  
-    .card.reverse .card-media,
-    .card.reverse .card-body{
-      order: unset;
-    }
-  
-    .card-media{
-      aspect-ratio: 16 / 9;          /* lite mindre “höjd-känsla” */
-      border-radius: 16px;
-    }
-  
-    .card-body{
-      padding: 0;                    /* ta bort extra sidpadding */
-      gap: 8px;
-    }
-  
-    .card-desc{
-      line-height: 1.6;
-      max-width: 62ch;
-    }
-  
-    /* Knappar: mindre och kan ligga bredvid varandra */
-    .card-actions{
-      margin-top: 0.9rem;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-  
-    .card-actions .btn{
-      padding: 0.62rem 0.95rem;      /* mindre knappar */
-      font-size: 0.92rem;
-      justify-content: center;
-    }
+@media (max-width: 980px){
+  .card,
+  .card.reverse{
+    grid-template-columns: 1fr;
+    max-width: 650px;              
+    padding: 16px;                 
+    gap: 14px;                  
   }
-  
 
-/* Mellanläge */
+  .card.reverse .card-media,
+  .card.reverse .card-body{
+    order: unset;
+  }
+
+  .card-media{
+    aspect-ratio: 16 / 9;         
+    border-radius: 16px;
+  }
+
+  .card-body{
+    padding: 0;                 
+    gap: 8px;
+  }
+
+  .card-desc{
+    line-height: 1.6;
+    max-width: 62ch;
+  }
+
+  .card-actions{
+    margin-top: 0.9rem;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .card-actions .btn{
+    padding: 0.62rem 0.95rem;     
+    font-size: 0.92rem;
+    justify-content: center;
+  }
+}
+  
 @media (max-width: 700px){
   .card,
   .card.reverse{
     grid-template-columns: 1fr;
-    max-width: 480px;              /* gör kortet smalare på tablet */
-    padding: 16px;                 /* mindre padding */
-    gap: 14px;                     /* mindre luft mellan media/text */
+    max-width: 480px;             
+    padding: 16px;                
+    gap: 14px;                    
   }
 
   .card{
@@ -272,20 +269,19 @@
     border-radius: 16px;
   }
   .card-actions .btn{
-    padding: 0.62rem 0.95rem;      /* mindre knappar */
+    padding: 0.62rem 0.95rem;      
     font-size: 0.92rem;
     justify-content: center;
   }
 }
 
-/* Mobil */
 @media (max-width: 500px){
   .card,
   .card.reverse{
     grid-template-columns: 1fr;
-    max-width: 300px;              /* gör kortet smalare på tablet */
-    padding: 16px;                 /* mindre padding */
-    gap: 14px;                     /* mindre luft mellan media/text */
+    max-width: 300px;              
+    padding: 16px;                 
+    gap: 14px;                 
   }
 
   .card-wrap{
@@ -310,17 +306,19 @@
   }
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce){
   .card,
   .card-image{
     transition: none !important;
   }
 
-  /* stäng tilt visuellt om du vill */
   .card{
     transform: none !important;
   }
 }
 
-  
+@media (hover: none) {
+  .card {
+    transform: none !important;
+  }
+}
