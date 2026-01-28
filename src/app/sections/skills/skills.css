@@ -338,11 +338,9 @@
     transition: transform 0.25s ease;
   }
   
-  /* Rotera vid öppet läge */
   .toggle-icon.is-open{
     transform: rotate(180deg);
   }
-  /* Tech container */
   
   .tech-block{
     background: var(--surface-2);
