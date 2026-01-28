@@ -16,6 +16,7 @@
         aria-label="Open live preview"
       >
         <img
+          title="Click to view live preview"
           class="card-image"
           [src]="project.imageUrl"
           [alt]="project.imageAlt"
@@ -24,6 +25,7 @@
       </a>
         <ng-template #staticImage>
           <img
+            title="Static project image"
             class="card-image"
             [src]="project.imageUrl"
             [alt]="project.imageAlt"
