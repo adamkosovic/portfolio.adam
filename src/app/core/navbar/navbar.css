@@ -49,8 +49,8 @@ section {
   isolation: isolate;
   will-change: transform;
 
-  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
 
   box-shadow: var(--nav-shadow);
 }
@@ -93,7 +93,9 @@ section {
     var(--brand),
     var(--brand-2)
   );
+
   -webkit-background-clip: text;
+  background-clip: clip;
   -webkit-text-fill-color: transparent;
 }
 

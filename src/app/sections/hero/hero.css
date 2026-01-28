@@ -233,7 +233,6 @@
 
 @media (max-height: 700px) {
   .hero-container {
-    min-height: auto;
     padding-block: var(--space-6);
   }
 

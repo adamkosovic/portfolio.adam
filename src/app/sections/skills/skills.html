@@ -4,28 +4,44 @@
       <p class="eyebrow">A quick overview of what I’m comfortable with and use in projects</p>
       <h2>Skills</h2>
     </header>
-    
+
     <div class="skills__grid">
       <!-- LEFT: Bars -->
       <div class="skills__bars" aria-labelledby="skills-frontend-title">
         <h3 id="skills-frontend-title">Frontend</h3>
-        
+
         <div class="bar">
           <div class="bar__top">
             <span class="bar__label">Angular</span>
             <span class="bar__value">80%</span>
           </div>
-          <div class="bar__track" style="--p: 80" role="progressbar" aria-label="Angular" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+          <div
+            class="bar__track"
+            [style.--p]="80"
+            role="progressbar"
+            aria-label="Angular"
+            aria-valuenow="80"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
             <div class="bar__fill"></div>
           </div>
         </div>
-        
+
         <div class="bar">
           <div class="bar__top">
             <span class="bar__label">HTML</span>
             <span class="bar__value">85%</span>
           </div>
-          <div class="bar__track" style="--p: 85" role="progressbar" aria-label="HTML" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+          <div
+            class="bar__track"
+            [style.--p]="85"
+            role="progressbar"
+            aria-label="HTML"
+            aria-valuenow="85"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
             <div class="bar__fill"></div>
           </div>
         </div>
@@ -35,7 +51,15 @@
             <span class="bar__label">CSS</span>
             <span class="bar__value">80%</span>
           </div>
-          <div class="bar__track" style="--p: 80" role="progressbar" aria-label="CSS" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+          <div
+            class="bar__track"
+            [style.--p]="80"
+            role="progressbar"
+            aria-label="CSS"
+            aria-valuenow="80"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
             <div class="bar__fill"></div>
           </div>
         </div>
@@ -45,18 +69,33 @@
             <span class="bar__label">JavaScript</span>
             <span class="bar__value">75%</span>
           </div>
-          <div class="bar__track" style="--p: 75" role="progressbar" aria-label="JavaScript" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+          <div
+            class="bar__track"
+            [style.--p]="75"
+            role="progressbar"
+            aria-label="JavaScript"
+            aria-valuenow="75"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
             <div class="bar__fill"></div>
           </div>
         </div>
-
 
         <div class="bar">
           <div class="bar__top">
             <span class="bar__label">React</span>
             <span class="bar__value">70%</span>
           </div>
-          <div class="bar__track" style="--p: 70" role="progressbar" aria-label="React" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+          <div
+            class="bar__track"
+            [style.--p]="70"
+            role="progressbar"
+            aria-label="React"
+            aria-valuenow="70"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
             <div class="bar__fill"></div>
           </div>
         </div>
@@ -66,39 +105,45 @@
             <span class="bar__label">TypeScript</span>
             <span class="bar__value">75%</span>
           </div>
-          <div class="bar__track" style="--p: 75" role="progressbar" aria-label="TypeScript" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+          <div
+            class="bar__track"
+            [style.--p]="75"
+            role="progressbar"
+            aria-label="TypeScript"
+            aria-valuenow="75"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
             <div class="bar__fill"></div>
           </div>
         </div>
       </div>
-
-      <!-- RIGHT: Circles -->
       <div class="skills__circles" aria-labelledby="skills-other-title">
         <h3 id="skills-other-title">Complementary skills</h3>
 
         <div class="circles" role="list">
-          <div class="circle" role="listitem" style="--p: 85" aria-label="UI/UX 85%">
+          <div class="circle" role="listitem" [style.--p]="85" aria-label="UI/UX 85%">
             <div class="circle__inner">
               <div class="circle__num">85%</div>
               <div class="circle__label">UI/UX</div>
             </div>
           </div>
 
-          <div class="circle" role="listitem" style="--p: 80" aria-label="Responsive 80%">
+          <div class="circle" role="listitem" [style.--p]="80" aria-label="Responsive 80%">
             <div class="circle__inner">
               <div class="circle__num">80%</div>
               <div class="circle__label">Responsive</div>
             </div>
           </div>
 
-          <div class="circle" role="listitem" style="--p: 60" aria-label="Testing 60%">
+          <div class="circle" role="listitem" [style.--p]="60" aria-label="Testing 60%">
             <div class="circle__inner">
               <div class="circle__num">60%</div>
               <div class="circle__label">Testing</div>
             </div>
           </div>
 
-          <div class="circle" role="listitem" style="--p: 75" aria-label="Git 75%">
+          <div class="circle" role="listitem" [style.--p]="75"  aria-label="Git 75%">
             <div class="circle__inner">
               <div class="circle__num">75%</div>
               <div class="circle__label">Git</div>
@@ -107,8 +152,6 @@
         </div>
       </div>
     </div>
-
-    <!-- STACK -->
     <section class="traits-block stack-block" aria-labelledby="stack-title">
       <div class="stack-head">
         <h3 id="stack-title">My stack</h3>
@@ -120,8 +163,9 @@
           (click)="marqueeOn = !marqueeOn"
           [attr.aria-expanded]="!marqueeOn"
           aria-controls="Toggle tech-list"
+          aria-label="Toggle technology list animation"
         >
-            <svg
+          <svg
             class="toggle-icon"
             [class.is-open]="!marqueeOn"
             width="18"
