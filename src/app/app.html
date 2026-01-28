@@ -3,8 +3,9 @@
   (finished)="onIntroFinished()">
 </app-intro>
 
+<app-navbar *ngIf="!showIntro"></app-navbar>
+
 <div class="page-content" [class.show]="!showIntro">
-  <app-navbar></app-navbar>
   <app-hero></app-hero>
   <app-about></app-about>
   <app-skills></app-skills>
