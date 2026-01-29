@@ -35,7 +35,7 @@ export class ProjectsComponent {
     },
     {
       title: 'Music - Landingpage (desktop only)',
-      description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore',
+      description: 'A desktop-based music landing page inspired by Spotify, developed using TypeScript and Vite with an emphasis on performance and visual clarity.',
       imageUrl: 'assets/images/spotifylandingpage.png',
       imageAlt: 'Screenshot of Expert Notes app',
       tags: ['TypeScript', 'Vite.js'],
