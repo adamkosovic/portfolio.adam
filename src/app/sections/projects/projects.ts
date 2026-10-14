@@ -34,6 +34,16 @@ export class ProjectsComponent {
       liveUrl: 'https://codee-commerce.netlify.app/',
     },
     {
+      title: 'Barber Booking - Fullstack',
+      description:
+        'A booking application where customers can choose a service, view available time slots, and create or cancel bookings. Includes double-booking prevention and an admin login for managing bookings.',
+      imageUrl: 'assets/images/barber.png',
+      imageAlt: 'Barber Booking service and appointment booking interface',
+      tags: ['PHP', 'MySQL', 'JavaScript', 'HTML', 'CSS'],
+      repoUrl: 'https://github.com/adamkosovic/Barber.BookingSystem',
+      liveUrl: '',
+    },
+    {
       title: 'BookQuote - Fullstack',
       description: 'A full-stack web application for managing books and quotes, built with Angular frontend and .NET backend.',
       imageUrl: 'assets/images/quotebook.png',
