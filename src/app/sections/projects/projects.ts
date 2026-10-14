@@ -16,6 +16,15 @@ import { NextsecBtn } from '../../shared/nextsec-btn/nextsec-btn';
 export class ProjectsComponent {
   projects: Project[] = [
     {
+      title: 'SupportFlow - Fullstack',
+      description: 'A full-stack IT support application with secure authentication, role-based access, ticket management, comments, and a statistics dashboard. Built with Angular and ASP.NET Core.',
+      imageUrl: 'assets/images/supportflow.png',
+      imageAlt: 'SupportFlow IT support dashboard',
+      tags: ['Angular', 'TypeScript', 'C#', 'ASP.NET Core', 'PostgreSQL'],
+      repoUrl: 'https://github.com/adamkosovic/SupportFlow',
+      liveUrl: 'https://supportflow-adamkosovic.up.railway.app/login',
+    },
+    {
       title: 'E-commerce - Fullstack',
       description: 'A full-stack e-commerce application with shopping cart, favorites, and admin product management.',
       imageUrl: 'assets/images/ecommerce.png',
